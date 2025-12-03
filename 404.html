@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حدث خطأ - الصفحة غير متاحة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            overflow: hidden;
+            touch-action: none;
+        }
+        
+        .error-container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            transform: scale(0.95);
+            animation: scaleIn 0.5s forwards;
+            backdrop-filter: blur(10px);
+        }
+        
+        @keyframes scaleIn {
+            to {
+                transform: scale(1);
+            }
+        }
+        
+        .error-code {
+            font-size: 120px;
+            font-weight: 900;
+            color: #ff4757;
+            margin-bottom: 10px;
+            line-height: 1;
+            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+            pointer-events: none;
+        }
+        
+        .error-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2f3542;
+            pointer-events: none;
+        }
+        
+        .error-message {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: #57606f;
+            pointer-events: none;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .btn-primary {
+            background: #ff4757;
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+        }
+        
+        .btn-primary:hover {
+            background: #ff6b81;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 71, 87, 0.6);
+        }
+        
+        .btn-secondary {
+            background: #fff;
+            color: #ff4757;
+            border: 2px solid #ff4757;
+        }
+        
+        .btn-secondary:hover {
+            background: #f1f2f6;
+            transform: translateY(-3px);
+        }
+        
+        .error-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .circles li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 71, 87, 0.2);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .circles li:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+        
+        .circles li:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+        
+        .circles li:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+        
+        .circles li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+        
+        .circles li:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+        
+        .circles li:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+        }
+        
+        .circles li:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+        }
+        
+        .circles li:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+        
+        .circles li:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+        
+        .circles li:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+        
+        @keyframes animate {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+        
+        /* تأثيرات للهواتف */
+        @media (max-width: 768px) {
+            .error-container {
+                padding: 30px 20px;
+            }
+            
+            .error-code {
+                font-size: 80px;
+            }
+            
+            .error-title {
+                font-size: 24px;
+            }
+            
+            .error-message {
+                font-size: 16px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+        
+        /* رسالة منع النسخ */
+        .copy-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            z-index: 9999;
+            display: none;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="copy-message">النص محمي ضد النسخ</div>
+    
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    
+    <div class="error-container">
+        <div class="error-icon">⚠️</div>
+        <h1 class="error-code">خطأ</h1>
+        <h2 class="error-title">يجري بعض التحديثات</h2>
+        <p class="error-message"> إحنا دلوقتي شغالين علي المنصة هتتوفر في اقرب وقت ان شاء الله </p>
+        
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // منع النقر الأيمن
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                showCopyMessage();
+            });
+            
+            // منع سحب الصور
+            document.addEventListener('dragstart', function(e) {
+                if (e.target.tagName === 'IMG') {
+                    e.preventDefault();
+                    showCopyMessage();
+                }
+            });
+            
+            // منع اختيار النص
+            document.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+                showCopyMessage();
+            });
+            
+            // منع نسخ النص
+            document.addEventListener('copy', function(e) {
+                e.preventDefault();
+                showCopyMessage();
+            });
+            
+            // منع قص النص
+            document.addEventListener('cut', function(e) {
+                e.preventDefault();
+                showCopyMessage();
+            });
+            
+            // منع لصق النص
+            document.addEventListener('paste', function(e) {
+                e.preventDefault();
+                showCopyMessage();
+            });
+            
+            // منع فتح أدوات المطورين
+            document.addEventListener('keydown', function(e) {
+                // F12
+                if (e.keyCode === 123) {
+                    e.preventDefault();
+                    showCopyMessage();
+                }
+                // Ctrl+Shift+I
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                    e.preventDefault();
+                    showCopyMessage();
+                }
+                // Ctrl+Shift+J
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                    e.preventDefault();
+                    showCopyMessage();
+                }
+                // Ctrl+U
+                if (e.ctrlKey && e.keyCode === 85) {
+                    e.preventDefault();
+                    showCopyMessage();
+                }
+            });
+            
+            // عرض رسالة المنع
+            function showCopyMessage() {
+                const msg = document.querySelector('.copy-message');
+                msg.style.display = 'block';
+                setTimeout(() => {
+                    msg.style.display = 'none';
+                }, 2000);
+            }
+                        // تأثيرات إضافية عند تحميل الصفحة
+            const errorContainer = document.querySelector('.error-container');
+            
+            // إضافة تأثير اهتزاز خفيف بعد ثانيتين
+          
+            
+            // إنشاء أسلوب الاهتزاز ديناميكيًا
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                    20%, 40%, 60%, 80% { transform: translateX(5px); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // تأثيرات للدوائر المتحركة
+            const circles = document.querySelectorAll('.circles li');
+            circles.forEach((circle, index) => {
+                // تغيير ألوان عشوائية للدوائر
+                const colors = ['rgba(255, 71, 87, 0.2)', 'rgba(255, 165, 2, 0.2)', 'rgba(46, 213, 115, 0.2)', 'rgba(30, 144, 255, 0.2)'];
+                circle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                // أحجام عشوائية
+                if (index > 3) {
+                    const size = Math.random() * 100 + 20;
+                    circle.style.width = `${size}px`;
+                    circle.style.height = `${size}px`;
+                }
+            });
+            
+            // تغيير رمز الخطأ عند النقر عليه
+            const errorCode = document.querySelector('.error-code');
+            const errorCodes = ['404', '500', '403', '400', '503'];
+            errorCode.addEventListener('click', function() {
+                const currentCode = this.textContent;
+                let newCode;
+                do {
+                    newCode = errorCodes[Math.floor(Math.random() * errorCodes.length)];
+                } while (newCode === currentCode);
+                
+                this.textContent = newCode;
+                
+                // تغيير الرسالة بناءً على رمز الخطأ
+                const errorTitle = document.querySelector('.error-title');
+                const errorMessage = document.querySelector('.error-message');
+                
+                
+            });
+        });
+            
+
+    </script>
+</body>
+</html>
