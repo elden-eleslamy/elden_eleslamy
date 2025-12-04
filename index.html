@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>الدين الإسلامي — الصفحة الرئيسية</title>
-<link rel="icon" type="image/x-icon" href="logo.png"/>
+  <link rel="icon" type="image/png" href="logo.png"/>
 
   <!-- خطوط -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -12,175 +12,124 @@
   <!-- أيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"/>
 
-  <meta name="theme-color" content="#f8fafc">
+  <meta name="theme-color" content="#0b0710">
 
   <style>
     :root{
-      --bg:#f8fafc;
-      --card:#ffffff;
-      --muted:#6b7280;
-      --accent:#0f766e;
-      --glass: rgba(255,255,255,0.6);
-      --radius:14px;
-      --shadow: 0 6px 20px rgba(15,23,42,0.06);
-      --glass-shadow: 0 8px 30px rgba(2,6,23,0.06);
+      /* فضائي/مرّيخي */
+      --bg-1: #07040a; /* very dark */
+      --bg-2: #120514; /* deep maroon */
+      --card: rgba(255,255,255,0.04);
+      --glass: rgba(255,255,255,0.04);
+      --muted: #bfc3cf;
+      --accent: #ff6b3d; /* lava/neon */
+      --accent-2: #ffb86b; /* warm */
+      --neon: 0 0 18px rgba(255,107,61,0.14), 0 0 40px rgba(255,107,61,0.08);
+      --glass-border: rgba(255,255,255,0.04);
+      --radius:16px;
+      --shadow: 0 12px 40px rgba(2,6,23,0.6);
     }
-    :root{
-      --primary: #003A70;
-      --secondary: #C9A43A;
-      
-      
-      
-      
-     
-    }
+
     *{box-sizing:border-box;font-family:'Cairo',sans-serif;-webkit-font-smoothing:antialiased}
-    html,body{height:100%;margin:0;background:var(--bg);color:#0f172a;line-height:1.45}
+    html,body{height:100%;margin:0;background:radial-gradient(1200px 600px at 15% 10%, rgba(255,91,48,0.06), transparent), linear-gradient(180deg,var(--bg-1),var(--bg-2));color:var(--muted);line-height:1.5;}
     a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
+
+    /* subtle starfield */
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(1px 1px at 5% 30%, rgba(255,255,255,0.08), transparent), radial-gradient(1px 1px at 60% 10%, rgba(255,255,255,0.06), transparent), radial-gradient(1px 1px at 80% 70%, rgba(255,255,255,0.04), transparent);
+      opacity:0.9;mix-blend-mode:overlay;
+    }
 
     /* HEADER */
-    header{
-      width:100%;
-      position:sticky;
-      top:0;
-      z-index:60;
-      backdrop-filter: blur(6px);
-      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
-      border-bottom:1px solid rgba(15,23,42,0.04);
-      box-shadow: 0 1px 0 rgba(15,23,42,0.02);
-    }
-    .nav {
-      max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;gap:12px;
-    }
+    header{position:sticky;top:0;z-index:60;padding:12px 20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.02)}
+    .nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+
     .brand{display:flex;align-items:center;gap:12px}
-    .logo{
-      width:48px;height:48px;border-radius:10px;س
-      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;box-shadow:var(--glass-shadow);
-      font-size:18px;
-    }
-    .site-title{font-weight:700;font-size:18px}
-    nav ul{display:flex;gap:14px;list-style:none;margin:0;padding:0;align-items:center}
-    nav a{font-weight:600;color:rgba(15,23,42,0.75)}
-    .cta{background:transparent;border:1px solid rgba(15,23,42,0.06);padding:8px 12px;border-radius:10px;font-weight:700;color:var(--accent)}
+    .logo{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;background:linear-gradient(135deg,var(--accent),#ff2e2e);box-shadow:var(--neon);overflow:hidden}
+    .logo img{width:100%;height:100%;object-fit:cover;display:block}
+    .site-title{font-weight:700;font-size:18px;color:#fff;letter-spacing:0.4px}
+    .site-sub{font-size:12px;color:rgba(255,255,255,0.6);margin-top:2px}
 
-    /* menu button (mobile) */
-    .menu-btn{display:none;align-items:center;gap:8px;padding:8px;border-radius:10px;border:0;background:transparent;font-size:18px}
+    nav ul{display:flex;gap:16px;list-style:none;margin:0;padding:0;align-items:center}
+    nav a{font-weight:600;color:rgba(255,255,255,0.9);padding:8px;border-radius:10px;transition:all .18s}
+    nav a:hover{transform:translateY(-3px);background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 8px 30px rgba(0,0,0,0.5)}
 
-    /* LAYOUT */
-    .container{max-width:1200px;margin:24px auto;padding:0 20px;display:grid;grid-template-columns: 1fr 340px;gap:28px;align-items:start}
+    .cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:0;padding:10px 14px;border-radius:12px;font-weight:800;color:#0b0710;box-shadow:var(--neon)}
+    .menu-btn{display:none;align-items:center;gap:8px;padding:8px;border-radius:10px;border:0;background:transparent;font-size:18px;color:var(--muted)}
+
+    /* layout */
+    .container{max-width:1200px;margin:28px auto;padding:0 20px;display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:start;z-index:2;position:relative}
     @media (max-width:980px){.container{grid-template-columns:1fr 320px}}
     @media (max-width:880px){.container{grid-template-columns:1fr;gap:18px;padding-bottom:60px}}
 
     /* HERO */
-    .hero{
-      background: linear-gradient(180deg, rgba(14,118,110,0.06), rgba(255,255,255,0.9));
-      padding:22px;border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;
-    }
-
-    .hero-row{display:flex;justify-content:space-between;gap:12px;align-items:center}
-    .hero h1{margin:0;font-size:22px}
+    .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:26px;border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;border:1px solid rgba(255,255,255,0.03)}
+    .hero-row{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+    .hero h1{margin:0;font-size:24px;color:#fff}
     .hero p{margin:0;color:var(--muted)}
-    .search{
-      display:flex;gap:8px;align-items:center;background:var(--card);padding:8px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.04);
-    }
-    .search input{border:0;outline:0;padding:8px;font-size:15px;background:transparent;width:100%}
-    .search button{background:var(--accent);border:0;padding:8px 12px;border-radius:10px;color:white;font-weight:700}
 
+    .search{display:flex;gap:8px;align-items:center;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:8px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .search input{border:0;outline:0;padding:10px;font-size:15px;background:transparent;width:100%;color:var(--muted)}
+    .search button{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;font-weight:700;color:var(--accent);backdrop-filter: blur(6px)}
+
+    /* fancy tags */
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg, rgba(255,107,61,0.12), rgba(255,184,107,0.06));color:var(--accent);font-weight:800}
 
     /* ARTICLES */
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:14px}
     @media (max-width:880px){.grid{grid-template-columns:1fr}}
-    .card{background:var(--card);border-radius:12px;padding:14px;box-shadow:var(--shadow);overflow:hidden;transition:transform .22s,box-shadow .22s}
-    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.08)}
-    .thumb{width:100%;height:160px;border-radius:10px;object-fit:cover;margin-bottom:12px;background:#eef2f7}
-    .meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-    .title{font-weight:700;color:#042f2d}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:14px;box-shadow:0 10px 30px rgba(2,6,23,0.6);overflow:hidden;transition:transform .26s,box-shadow .26s;border:1px solid rgba(255,255,255,0.02)}
+    .card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 30px 70px rgba(2,6,23,0.75)}
+
+    .thumb{width:100%;height:180px;border-radius:12px;object-fit:cover;margin-bottom:12px;background:linear-gradient(90deg,#2e0b0b,#5a0d0d)}
+    .meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;color:rgba(255,255,255,0.7)}
+    .title{font-weight:800;color:#fff}
     .excerpt{color:var(--muted);font-size:14px;margin-bottom:10px}
+    .read-link{display:inline-block;margin-top:8px;padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);font-weight:800;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.01))}
 
     /* SIDEBAR */
     aside{display:flex;flex-direction:column;gap:18px}
-    .widget{background:var(--card);border-radius:12px;padding:14px;box-shadow:var(--shadow)}
-    .widget h3{margin:0 0 8px 0;font-size:16px;color:#063735}
+    .widget{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:14px;box-shadow:0 12px 30px rgba(2,6,23,0.5);border:1px solid rgba(255,255,255,0.02)}
+    .widget h3{margin:0 0 8px 0;font-size:16px;color:#fff}
     .links-list{display:flex;flex-direction:column;gap:8px}
-    .links-list a{display:flex;align-items:center;gap:10px;padding:8px;border-radius:8px;color:var(--muted)}
-    .links-list a:hover{background:rgba(15,23,42,0.03);color:var(--accent)}
+    .links-list a{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;color:var(--muted);transition:all .18s}
+    .links-list a:hover{transform:translateX(6px);color:var(--accent)}
+
     .socials{display:flex;gap:8px;flex-wrap:wrap}
-    .socials a{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.6));border:1px solid rgba(2,6,23,0.03);color:var(--accent);font-weight:700}
+    .socials a{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.02);color:var(--muted);font-weight:700}
 
     /* PRAYER TIMES */
     .prayer-list{display:flex;flex-direction:column;gap:8px}
-    .prayer-item{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;background:linear-gradient(90deg, rgba(15,118,110,0.03), rgba(255,255,255,0.4));border:1px solid rgba(15,23,42,0.03)}
-    .prayer-time{font-weight:700;color:#064e4b}
-    .countdown{margin-top:12px;padding:10px;border-radius:10px;background:#0f766e10;color:var(--accent);font-weight:700;text-align:center}
+    .prayer-item{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.02)}
+    .prayer-time{font-weight:800;color:var(--accent)}
 
     /* FOOTER */
-    footer{margin-top:36px;padding:20px;text-align:center;color:var(--muted);font-size:14px}
+    footer{margin-top:36px;padding:30px;text-align:center;color:var(--muted);font-size:14px}
 
     /* DRAWER */
-    .backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.4);opacity:0;pointer-events:none;transition:opacity .25s;z-index:58}
+    .backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);opacity:0;pointer-events:none;transition:opacity .25s;z-index:58}
     .backdrop.show{opacity:1;pointer-events:auto}
-    .drawer{position:fixed;top:0;right:0;height:100vh;width:320px;max-width:90%;background:linear-gradient(180deg,#fff,#fbfffe);box-shadow: -12px 0 40px rgba(2,6,23,0.12);transform:translateX(110%);transition:transform .28s;z-index:59;padding:18px;display:flex;flex-direction:column;gap:12px}
+    .drawer{position:fixed;top:0;right:0;height:100vh;width:360px;max-width:90%;background:linear-gradient(180deg,#0b0610,#160414);box-shadow: -20px 0 80px rgba(2,6,23,0.75);transform:translateX(110%);transition:transform .28s;z-index:59;padding:18px;display:flex;flex-direction:column;gap:12px;border-left:1px solid rgba(255,255,255,0.02)}
     .drawer.open{transform:translateX(0)}
     .drawer nav{display:flex;flex-direction:column;gap:10px;margin-top:8px}
-    .drawer a{padding:10px;border-radius:10px;font-weight:700;color:var(--accent)}
+    .drawer a{padding:12px;border-radius:12px;font-weight:700;color:var(--muted);background:transparent}
     .drawer .top{display:flex;align-items:center;justify-content:space-between;gap:8px}
-    .drawer .close-btn{background:transparent;border:0;font-size:18px}
+    .drawer .close-btn{background:transparent;border:0;font-size:18px;color:var(--muted)}
 
-    /* responsive behavior */
-    @media (max-width:880px){
-      nav ul{display:none}
-      .menu-btn{display:inline-flex}
-      .cta{display:none}
-      .logo{width:42px;height:42px}
-      .site-title{font-size:16px}
+    @media (max-width:880px){nav ul{display:none}.menu-btn{display:inline-flex}.cta{display:none}.logo{width:48px;height:48px}.site-title{font-size:15px}}
 
+    /* Social Icons bottom */
+    .social-box{display:flex;flex-wrap:nowrap;gap:10px;justify-content:center;margin:40px auto;max-width:1000px;padding:8px}
+    .social-box a{flex:0 1 auto;width:48px;height:48px;background:linear-gradient(135deg,#0b0710,rgba(255,255,255,0.01));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;text-decoration:none;color:var(--accent);border:1px solid rgba(255,255,255,0.02);box-shadow:0 10px 30px rgba(0,0,0,0.6);transition:transform .18s}
+    .social-box a:hover{transform:translateY(-6px);filter:drop-shadow(0 10px 30px rgba(255,107,61,0.06));color:#fff;background:linear-gradient(90deg,var(--accent),#ff3b2f)}
 
-    }
-.logo img {
-  width: 100%;
-  height: auto;
-  max-width: 50px;  /* الحجم الأقصى على الشاشات الكبيرة */
-  border-radius: 10px;
-  display: block;
-}
+    /* micro animations */
+    @keyframes floaty {0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+    .floating{animation:floaty 6s ease-in-out infinite}
 
-@media (max-width:880px){
-  .logo img {
-    max-width: 36px;  /* يصغر على الموبايل */
-  }
-}
- /* Social Icons */
-    .social-box{
-  display: flex;
-  flex-wrap: nowrap; /* دايمًا جنب بعض */
-  gap: 10px; /* مسافة بين الأيقونات */
-  justify-content: center; /* توسيط الأيقونات */
-  margin-top: 20px;
-}
-
-.social-box a{
-  flex: 0 1 auto; /* يسمح بالتصغير حسب المساحة */
-  width: clamp(35px, 8vw, 55px);  /* أصغر 35px، أكبر 55px، يتغير مع حجم الشاشة */
-  height: clamp(35px, 8vw, 55px);
-  background: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(16px, 4vw, 24px); /* حجم الأيقونة يتقلص مع الشاشة */
-  text-decoration: none;
-  color: var(--primary);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.social-box a:hover{
-  transform: translateY(-4px);
-  background: var(--primary);
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
+    /* accessibility helpers */
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
 
   </style>
 </head>
@@ -188,10 +137,10 @@
   <header>
     <div class="nav">
       <div class="brand">
-        <div class="logo" aria-hidden="true"><img class="thumb" src="https://www.appcreator24.com/srv/imgs/gen/3122147_ico.png?v=31"></div>
+        <div class="logo floating" aria-hidden="true"><img src="https://www.appcreator24.com/srv/imgs/gen/3122147_ico.png?v=31" alt="شعار الموقع"></div>
         <div>
           <div class="site-title">الدين الإسلامي</div>
-          
+          <div class="site-sub">محتوى إيماني بجودة فضائية</div>
         </div>
       </div>
 
@@ -199,14 +148,16 @@
         <ul>
           <li><a href="#home">الرئيسية</a></li>
           <li><a href="#articles">منشورات</a></li>
-          <li><a href="#links">روابط</a></li>
+          <li><a href="#links-sidebar">روابط</a></li>
           <li><a href="#contact">تواصل</a></li>
-         
         </ul>
       </nav>
 
       <!-- زر القائمة للشاشات الصغيرة -->
-      <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة"><i class="fa-solid fa-bars"></i></button>
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة"><i class="fa-solid fa-bars"></i></button>
+       
+      </div>
     </div>
   </header>
 
@@ -215,11 +166,10 @@
   <aside class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-label="قائمة الموقع">
     <div class="top">
       <div style="display:flex;align-items:center;gap:10px">
-        <div class="logo" style="width:40px;height:40px"><img class="thumb" src="https://www.appcreator24.com/srv/imgs/gen/3122147_ico.png?v=31">
-</div>
+        <div class="logo" style="width:46px;height:46px"><img src="https://www.appcreator24.com/srv/imgs/gen/3122147_ico.png?v=31" alt="logo drawer"></div>
         <div>
-          <div class="site-title" style="font-size:15px">الدين الإسلامي</div>
-          <div class="small">تصفح الموقع</div>
+          <div class="site-title" style="font-size:15px;color:#fff">الدين الإسلامي</div>
+          <div class="small" style="color:var(--muted)">تصفح الموقع</div>
         </div>
       </div>
       <button class="close-btn" id="closeBtn" aria-label="إغلاق القائمة"><i class="fa-solid fa-xmark"></i></button>
@@ -228,27 +178,26 @@
     <nav>
       <a href="#home" onclick="closeDrawer()">الرئيسية</a>
       <a href="#articles" onclick="closeDrawer()">منشورات</a>
-      <a href="#links" onclick="closeDrawer()">روابط تهمك</a>
+      <a href="#links-sidebar" onclick="closeDrawer()">روابط تهمك</a>
       <a href="#media" onclick="closeDrawer()">صفحاتنا</a>
-
     </nav>
 
- <div id="links" class="widget" role="navigation" aria-label="روابط تهمك">
-        <h3>روابط تهمك</h3>
-        <div class="links-list">
-          <a href="https://www.appcreator24.com/app3122147-rjpy2m" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-download"></i> تحميل التطبيق</a>
-          <a href="ElectronicLibrary.html" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-book-open"></i> المكتبة الإكترونية</a>
-          <a href="404.html" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-video"></i> منصة الفديوهات</a>
-          <a href="404.html" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-flag-checkered"></i> منصة المسابقات</a>
-        </div>
+    <div id="links-sidebar" class="widget" role="navigation" aria-label="روابط تهمك">
+      <h3>روابط تهمك</h3>
+      <div class="links-list">
+        <a href="https://www.appcreator24.com/app3122147-rjpy2m" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-download"></i> تحميل التطبيق</a>
+        <a href="ElectronicLibrary.html" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-book-open"></i> المكتبة الإكترونية</a>
+        <a href="404.html" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-video"></i> منصة الفيديوهات</a>
+        <a href="404.html" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-flag-checkered"></i> منصة المسابقات</a>
       </div>
+    </div>
 
     <div style="margin-top:auto;font-size:13px;color:var(--muted)">
       <div style="margin-bottom:8px">تابعنا على:</div>
       <div class="socials">
-        <a href="#"><i class="fab fa-facebook-f"></i> فيسبوك</a>
-        <a href="#"><i class="fab fa-youtube"></i> يوتيوب</a>
-        <a href="#"><i class="fab fa-telegram-plane"></i> تيليجرام</a>
+        <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i> فيسبوك</a>
+        <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i> يوتيوب</a>
+        <a href="#" aria-label="تيليجرام"><i class="fab fa-telegram-plane"></i> تيليجرام</a>
       </div>
     </div>
   </aside>
@@ -257,67 +206,59 @@
     <!-- MAIN COLUMN -->
     <section>
       <div class="hero card" role="region" aria-label="مقدمة الموقع">
-        <div class="hero-row" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div class="hero-row">
           <div>
             <h1>مرحبًا بك في «الدين الإسلامي»</h1>
-            
+            <p>مقالات، فيديوهات، ومحتوى إيماني مصمّم بذوق فضائي — جودة عالية وتجربة مريحة للعين.</p>
           </div>
 
-          <div style="min-width:200px;max-width:320px;">
+          <div style="min-width:220px;max-width:420px;">
             <div class="search" role="search" aria-label="بحث في المنشورات">
               <input id="searchInput" placeholder="ابحث عن مقال أو موضوع..." aria-label="بحث" />
               <button id="searchBtn" aria-label="بحث">ابحث</button>
             </div>
-           
           </div>
         </div>
 
-        <!-- شايف المنشور المميز -->
-       
-         
-
-            <div style="background:#fff;padding:12px;border-radius:12px;border:1px solid rgba(2,6,23,0.03);box-shadow:var(--shadow)">
-              <div class="small" style="margin-bottom:6px">تحديث سريع</div>
-              <div class="small" id="lastUpdated">آخر تحديث: —</div>
-            </div>
-          </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:6px">
+          <div style="background:linear-gradient(90deg, rgba(255,107,61,0.08), rgba(255,184,107,0.02));padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);color:var(--muted)">تحديث سريع</div>
+          <div style="background:transparent;color:var(--muted);padding:8px 12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);">آخر تحديث: <strong id="lastUpdated">—</strong></div>
         </div>
       </div>
 
       <!-- قائمة المقالات -->
       <section id="articles" aria-label="منشورات ومقالات" style="margin-top:18px">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-          <h2 style="margin:0">أحدث المنشورات</h2>
+          <h2 style="margin:0;color:#fff">أحدث المنشورات</h2>
           <div class="small">عرض مُفلتر: <strong id="filterLabel">الكل</strong></div>
         </div>
 
         <div id="articlesGrid" class="grid" role="list">
           <!-- أمثلة مقالات -->
           <article class="card" role="listitem">
-            <img class="thumb" src="ChatGPT Image Dec 3, 2025, 04_48_42 PM.png" alt="مقال صورة">
+            <div class="thumb" src="ChatGPT Image Dec 3, 2025, 04_48_42 PM.png" style="background-size:cover;background-position:center" aria-hidden="true"></div>
             <div class="meta"><span class="small">3 ديسمبر 2025</span></div>
             <h3 class="title">كيف يثبت المسلم على طريق الله؟</h3>
-           
-            <a href="art1.html" aria-label="اقرأ المقال الأول">اقرأ المزيد →</a>
+            <p class="excerpt">خطوات بسيطة وثابتة تساعدك في الحفاظ على الصلة اليومية مع ربك...</p>
+            <a class="read-link" href="art1.html" aria-label="اقرأ المقال الأول">اقرأ المزيد →</a>
           </article>
 
-          
+         
+
         </div>
       </section>
     </section>
 
     <!-- SIDEBAR -->
     <aside aria-label="الشريط الجانبي">
-      
 
       <!-- روابط مهمة -->
-      <div id="links" class="widget" role="navigation" aria-label="روابط تهمك">
+      <div class="widget" role="navigation" aria-label="روابط تهمك">
         <h3>روابط تهمك</h3>
         <div class="links-list">
           <a href="https://www.appcreator24.com/app3122147-rjpy2m" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-download"></i> تحميل التطبيق</a>
           <a href="ElectronicLibrary.html" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-book-open"></i> المكتبة الإكترونية</a>
-          <a href="404.HTML" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-video"></i> منصة الفديوهات</a>
-          <a href="404.HTML" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-flag-checkered"></i> منصة المسابقات</a>
+          <a href="404.HTML" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-video"></i> منصة الفيديوهات</a>
         </div>
       </div>
 
@@ -325,80 +266,23 @@
       <div id="contact" class="widget" role="region" aria-label="تواصل معنا">
         <h3>تواصل معنا</h3>
         <div class="socials" aria-hidden="false">
-          <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i> فيسبوك</a>
-          <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> يوتيوب</a>
-          <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram-plane"></i> تيليجرام</a>
-          <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> واتساب</a>
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i> فيسبوك</a>
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب"><i class="fab fa-youtube"></i> يوتيوب</a>
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="تيليجرام"><i class="fab fa-telegram-plane"></i> تيليجرام</a>
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="واتساب"><i class="fab fa-whatsapp"></i> واتساب</a>
         </div>
       </div>
-    </aside>
-  </main>
-<div class="social-box" id="media" >
-      <a id="openLink" href="https://www.facebook.com/profile.php?id=100090053261427" title="فيسبوك"><i class="fab fa-facebook-f"></i></a>
-      <a id="openLink" href="https://www.instagram.com/elden_eleslamy" title="إنستجرام"><i class="fab fa-instagram"></i></a>
-      <a id="openLink" href="https://www.whatsapp.com/channel/0029VaeLbB39Gv7Y308tqC0F"واتساب" title="واتساب"><i class="fab fa-whatsapp"></i></a>
-      <a id="openLink" href="https://www.t.me/eldeneleslamy" title="تليجرام"><i class="fab fa-telegram-plane"></i></a>
-      <a id="openLink" href="https://www.youtube.com/@eldeneleslamy" title="يوتيوب"><i class="fab fa-youtube"></i></a>
-      <a id="openLink" href="https://www.tiktok.com/@elden_eleslamy" title="تيك توك"><i class="fab fa-tiktok"></i></a>
-      <a id="openLink" href="https://www.x.com/elden_eleslamy" title="X / تويتر"><i class="fab fa-twitter"></i></a>
-      <a id="openLink" href="https://www.threads.com/@elden_eleslamy" title="ثريدس"><i class="fas fa-circle"></i></a>
-    </div>
-  <footer>
-    <div style="max-width:1200px;margin:0 auto;padding:20px;">© <span id="year"></span> جميع الحقوق مخصّصة لموقع «الدين الإسلامي»</div>
-  </footer>
 
-  <!-- Adhan.js (CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/adhan@4.1.1/dist/Adhan.min.js"></script>
+      <!-- مواقيت الصلاة (مثال) -->
+    
+<div class="widget" id="prayer-box">
+  <h3>مواقيت الصلاة</h3>
+<div id="userLocation" style="text-align:center; margin-bottom:10px; color:var(--muted); font-size:14px;">
+  جاري تحديد موقعك...
+</div>
 
- <script>
-// ========== SEARCH BUTTON ==========
-const searchInput = document.getElementById("searchInput");
-const searchBtn   = document.getElementById("searchBtn");
-
-searchBtn.addEventListener("click", function () {
-    const term = searchInput.value.trim();
-    if(term === ""){
-        alert("من فضلك اكتب كلمة للبحث");
-    } else {
-        alert("تم البحث عن: " + term);
-    }
-});
-
-// ========== DRAWER CONTROLS ==========
-const menuBtn   = document.getElementById('menuBtn');
-const drawer    = document.getElementById('drawer');
-const backdrop  = document.getElementById('backdrop');
-const closeBtn  = document.getElementById('closeBtn');
-
-function openDrawer(){
-    drawer.classList.add('open');
-    backdrop.classList.add('show');
-    document.body.style.overflow = 'hidden';
-    closeBtn.focus();
-}
-
-function closeDrawer(){
-    drawer.classList.remove('open');
-    backdrop.classList.remove('show');
-    document.body.style.overflow = '';
-    menuBtn.focus();
-}
-
-menuBtn.addEventListener('click', openDrawer);
-closeBtn.addEventListener('click', closeDrawer);
-backdrop.addEventListener('click', closeDrawer);
-
-document.addEventListener('keydown', (e)=>{
-    if(e.key === 'Escape') closeDrawer();
-});
-
-window.closeDrawer = closeDrawer;
-
-</script>
-</body>
-</html>
-
-
-
-
+  <div class="prayer-list" id="prayerTimes">
+    <div style="text-align:center;color:var(--muted)">جاري تحميل المواقيت...</div>
+  </div>
+</div>
 
