@@ -285,6 +285,135 @@
     <div style="text-align:center;color:var(--muted)">جاري تحميل المواقيت...</div>
   </div>
 </div>
+</aside>
+</main>
+
+
+<div class="social-box" id="media" aria-hidden="false">
+<a href="https://www.facebook.com/profile.php?id=100090053261427" title="فيسبوك" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+<a href="https://www.instagram.com/elden_eleslamy" title="إنستجرام" aria-label="إنستجرام"><i class="fab fa-instagram"></i></a>
+<a href="https://wa.me/" title="واتساب" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+<a href="https://www.t.me/eldeneleslamy" title="تليجرام" aria-label="تليجرام"><i class="fab fa-telegram-plane"></i></a>
+<a href="https://www.youtube.com/@eldeneleslamy" title="يوتيوب" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
+<a href="https://www.tiktok.com/@elden_eleslamy" title="تيك توك" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
+<a href="https://www.x.com/elden_eleslamy" title="X / تويتر" aria-label="X"><i class="fab fa-twitter"></i></a>
+<a href="https://www.threads.com/@elden_eleslamy" title="ثريدس" aria-label="ثريدس"><i class="fas fa-circle"></i></a>
+</div>
+
+
+<footer>
+<div style="max-width:1200px;margin:0 auto;padding:20px;color:var(--muted)">© <span id="year"></span> جميع الحقوق مخصّصة لموقع «الدين الإسلامي»</div>
+</footer>
+
+
+<!-- Adhan.js (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/adhan@4.1.1/dist/Adhan.min.js"></script>
+
+
+<script>
+// ========== SMALL SCRIPTS ==========
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
+searchBtn.addEventListener("click", () => {
+const term = searchInput.value.trim();
+if(!term) return alert("من فضلك اكتب كلمة للبحث");
+// هنا ممكن تربط للبحث الحقيقي لاحقًا
+alert("تم البحث عن: " + term);
+});
+searchInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') searchBtn.click(); });
+
+
+// ========== DRAWER CONTROLS ==========
+const menuBtn = document.getElementById('menuBtn');
+const drawer = document.getElementById('drawer');
+const backdrop = document.getElementById('backdrop');
+const closeBtn = document.getElementById('closeBtn');
+
+
+function openDrawer(){
+drawer.classList.add('open');
+backdrop.classList.add('show');
+document.body.style.overflow = 'hidden';
+closeBtn.focus();
+}
+function closeDrawer(){
+drawer.classList.remove('open');
+backdrop.classList.remove('show');
+document.body.style.overflow = '';
+menuBtn.focus();
+}
+menuBtn.addEventListener('click', openDrawer);
+closeBtn.addEventListener('click', closeDrawer);
+backdrop.addEventListener('click', closeDrawer);
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeDrawer(); });
+window.closeDrawer = closeDrawer;
+
+
+// ========== SET YEAR & LAST UPDATED ==========
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('lastUpdated').textContent = new Date().toLocaleString('ar-EG', {year:'numeric',month:'long',day:'numeric'});
+
+
+// small progressive enhancement: floating logo stops on hover for crispness
+const logo = document.querySelector('.logo');
+logo.addEventListener('mouseenter', ()=> logo.style.animationPlayState = 'paused');
+logo.addEventListener('mouseleave', ()=> logo.style.animationPlayState = 'running');
+
+
+
+
+  function loadPrayerTimes(lat, lon) {
+  // جلب اسم المدينة والدولة
+  fetch(`https://api.aladhan.com/v1/reverseGeocode?latitude=${lat}&longitude=${lon}`)
+    .then(res => res.json())
+    .then(loc => {
+      const city = loc.data.city || "غير معروف";
+      const country = loc.data.country || "";
+      document.getElementById("userLocation").innerHTML =
+        `موقعك: <strong>${city}</strong> — <strong>${country}</strong><br>
+         <span style="font-size:12px;color:var(--muted);">(${lat.toFixed(4)}, ${lon.toFixed(4)})</span>`;
+    });
+
+  // جلب مواقيت الصلاة
+  fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=5`)
+    .then(res => res.json())
+    .then(data => {
+      const t = data.data.timings;
+      const box = document.getElementById("prayerTimes");
+
+      box.innerHTML = `
+        <div class="prayer-item"><span>الفجر</span><span class="prayer-time">${t.Fajr}</span></div>
+        <div class="prayer-item"><span>الظهر</span><span class="prayer-time">${t.Dhuhr}</span></div>
+        <div class="prayer-item"><span>العصر</span><span class="prayer-time">${t.Asr}</span></div>
+        <div class="prayer-item"><span>المغرب</span><span class="prayer-time">${t.Maghrib}</span></div>
+        <div class="prayer-item"><span>العشاء</span><span class="prayer-time">${t.Isha}</span></div>
+      `;
+    })
+    .catch(() => {
+      document.getElementById("prayerTimes").innerHTML =
+        `<div style="text-align:center;color:red">تعذّر تحميل المواقيت</div>`;
+    });
+}
+
+// تحديد الموقع تلقائيًا
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(
+    pos => loadPrayerTimes(pos.coords.latitude, pos.coords.longitude),
+    () => {
+      // لو الاذن مرفوض
+      const lat = 30.0444, lon = 31.2357; // القاهرة
+      document.getElementById("userLocation").innerHTML = "استخدمنا موقع احتياطي: <strong>القاهرة، مصر</strong>";
+      loadPrayerTimes(lat, lon);
+    }
+  );
+} else {
+  document.getElementById("userLocation").innerHTML = "جهازك لا يدعم تحديد الموقع";
+  loadPrayerTimes(30.0444, 31.2357);
+}
+
+</script>
+</body>
+</html>
 
 
 
