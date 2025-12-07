@@ -172,7 +172,7 @@
       text-overflow: ellipsis;
     }
 
-    /* ----- زر العودة للجوال ----- */
+    /* ----- زر العودة للصفحة السابقة (تغيير من الرئيسية إلى رجوع) ----- */
     .back-btn {
       position: fixed;
       bottom: 20px;
@@ -945,10 +945,10 @@
     </div>
   </header>
 
-  <!-- زر العودة للصفحة الرئيسية -->
-  <a href="index.html" class="back-btn fade-in" aria-label="العودة للرئيسية">
-    <i class="fa-solid fa-arrow-right"></i> الرئيسية
-  </a>
+  <!-- زر رجوع للصفحة السابقة -->
+  <button class="back-btn fade-in" id="goBackBtn" aria-label="العودة للصفحة السابقة">
+    <i class="fa-solid fa-arrow-right"></i> رجوع
+  </button>
 
   <!-- زر العودة للأعلى -->
   <button id="backToTop" aria-label="العودة للأعلى">
@@ -964,7 +964,7 @@
       <!-- معلومات المقال -->
       <div class="post-meta">
         <span><i class="fa-regular fa-calendar"></i> <span id="postDate">3 ديسمبر 2025</span></span>
-      
+        <span><i class="fa-regular fa-clock"></i> 8 دقائق</span>
         <span><i class="fa-regular fa-folder"></i> الإيمان والثبات</span>
       </div>
 
@@ -1101,7 +1101,10 @@
       <div>© <span id="year"></span> جميع الحقوق محفوظة لموقع «الدين الإسلامي»</div>
       <div class="footer-links">
         <a href="index.html">الرئيسية</a>
-        
+        <a href="#">عن الموقع</a>
+        <a href="#">اتصل بنا</a>
+        <a href="#">سياسة الخصوصية</a>
+        <a href="#">شروط الاستخدام</a>
       </div>
     </div>
   </footer>
@@ -1109,6 +1112,74 @@
   <script>
     // ========== YEAR ==========
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ========== زر الرجوع للصفحة السابقة ==========
+    const goBackBtn = document.getElementById('goBackBtn');
+    
+    goBackBtn.addEventListener('click', function() {
+      // التحقق مما إذا كان هناك صفحة سابقة في سجل التصفح
+      if (document.referrer && document.referrer !== '' && document.referrer !== window.location.href) {
+        // هناك صفحة سابقة، ارجع إليها
+        window.history.back();
+      } else {
+        // لا توجد صفحة سابقة، انتقل إلى الصفحة الرئيسية
+        window.location.href = 'index.html';
+      }
+    });
+    
+    // إضافة ميزة للضغط المزدوج على زر الرجوع للخروج من التطبيق (للتطبيقات المحمولة)
+    let backButtonPressCount = 0;
+    let backButtonPressTimer;
+    
+    goBackBtn.addEventListener('touchstart', function() {
+      backButtonPressCount++;
+      
+      if (backButtonPressCount === 1) {
+        backButtonPressTimer = setTimeout(function() {
+          // ضغطة واحدة - الرجوع للصفحة السابقة
+          if (document.referrer && document.referrer !== '' && document.referrer !== window.location.href) {
+            window.history.back();
+          } else {
+            window.location.href = 'index.html';
+          }
+          backButtonPressCount = 0;
+        }, 300);
+      } else if (backButtonPressCount === 2) {
+        // ضغطة مزدوجة - عرض رسالة
+        clearTimeout(backButtonPressTimer);
+        showMessage('للخروج من التطبيق، استخدم زر الرجوع في هاتفك');
+        backButtonPressCount = 0;
+      }
+    }, false);
+    
+    // دالة لعرض الرسائل المؤقتة
+    function showMessage(text) {
+      const messageDiv = document.createElement('div');
+      messageDiv.textContent = text;
+      messageDiv.style.cssText = `
+        position: fixed;
+        bottom: 120px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--accent);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        z-index: 10000;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        animation: fadeInOut 2s ease-in-out;
+        text-align: center;
+        max-width: 90%;
+      `;
+      document.body.appendChild(messageDiv);
+      
+      setTimeout(() => {
+        if (document.body.contains(messageDiv)) {
+          document.body.removeChild(messageDiv);
+        }
+      }, 2000);
+    }
 
     // ========== SHARE FUNCTIONALITY ==========
     const pageUrl = encodeURIComponent(window.location.href);
@@ -1134,28 +1205,7 @@
     document.getElementById('copyLink')?.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(window.location.href);
-        // رسالة تنبيه للجوال
-        const alertMsg = document.createElement('div');
-        alertMsg.textContent = 'تم نسخ الرابط!';
-        alertMsg.style.cssText = `
-          position: fixed;
-          bottom: 120px;
-          left: 50%;
-          transform: translateX(-50%);
-          background: var(--accent);
-          color: white;
-          padding: 12px 24px;
-          border-radius: 8px;
-          z-index: 10000;
-          font-weight: bold;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-          animation: fadeInOut 2s ease-in-out;
-        `;
-        document.body.appendChild(alertMsg);
-        
-        setTimeout(() => {
-          document.body.removeChild(alertMsg);
-        }, 2000);
+        showMessage('تم نسخ الرابط!');
       } catch(e) {
         prompt('انسخ الرابط من هنا:', window.location.href);
       }
@@ -1179,7 +1229,7 @@
           console.log('تم إلغاء المشاركة');
         }
       } else {
-        alert('خاصية المشاركة غير مدعومة في متصفحك.');
+        showMessage('خاصية المشاركة غير مدعومة في متصفحك');
       }
     });
 
@@ -1305,6 +1355,27 @@
     if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
       document.body.style.webkitOverflowScrolling = 'touch';
     }
+    
+    // دعم زر الرجوع في المتصفح
+    window.addEventListener('popstate', function(event) {
+      // يمكنك إضافة أي كود إضافي هنا عند الرجوع
+    });
+    
+    // تحسين زر الرجوع للضغط الطويل
+    let longPressTimer;
+    goBackBtn.addEventListener('touchstart', function() {
+      longPressTimer = setTimeout(() => {
+        showMessage('للذهاب للصفحة الرئيسية، انقر على الشعار في الأعلى');
+      }, 1000);
+    });
+    
+    goBackBtn.addEventListener('touchend', function() {
+      clearTimeout(longPressTimer);
+    });
+    
+    goBackBtn.addEventListener('touchmove', function() {
+      clearTimeout(longPressTimer);
+    });
   </script>
 </body>
 </html>
