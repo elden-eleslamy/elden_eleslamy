@@ -2,299 +2,1309 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <title>كيف يثبت المسلم على طريق الله؟ — الدين الإسلامي</title>
   <link rel="icon" type="image/png" href="logo.png"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- خطوط -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- أيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
+  <meta name="theme-color" content="#f8fafc">
+
   <style>
-    /* ----- Mars UI palette ----- */
+    /* ----- ألوان فاتحة احترافية ----- */
     :root{
-      --bg-1: #07040a;
-      --bg-2: #120514;
-      --card: rgba(255,255,255,0.02);
-      --muted: #bfc3cf;
-      --mars: #ff6b3d;        /* accent مريخي */
-      --mars-dark: #c1440e;
-      --mars-light: rgba(255,107,61,0.10); /* للعناوين */
-      --verse-bg: rgba(255,196,140,0.08); /* للآيات/الأحاديث */
-      --section-1: rgba(17,11,18,0.22);
-      --section-2: rgba(20,12,20,0.16);
-      --section-3: rgba(255,255,255,0.02);
-      --radius:16px;
-      --shadow: 0 12px 40px rgba(2,6,23,0.6);
-      --glass-border: rgba(255,255,255,0.03);
+      --bg-1: #f8fafc; /* خلفية رئيسية فاتحة */
+      --bg-2: #ffffff; /* خلفية ثانوية بيضاء */
+      --card: #ffffff;
+      --glass: rgba(255,255,255,0.85);
+      --text-primary: #1e293b;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --accent: #0e7490; /* أزرق فاتح أنيق */
+      --accent-2: #0891b2; /* أزرق متوسط */
+      --accent-light: #e0f2fe; /* أزرق فاتح للخلفيات */
+      --accent-dark: #075985;
+      --border: #e2e8f0;
+      --border-light: #f1f5f9;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 10px 40px rgba(0, 0, 0, 0.08);
+      --shadow-card: 0 6px 25px rgba(0, 0, 0, 0.05);
+      --radius: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --transition: all 0.3s ease;
     }
 
     /* ----- base ----- */
-    *{box-sizing:border-box;font-family:'Cairo',sans-serif;-webkit-font-smoothing:antialiased}
-    html,body{height:100%;margin:0;background:radial-gradient(1200px 600px at 10% 10%, rgba(255,91,48,0.03), transparent), linear-gradient(180deg,var(--bg-1),var(--bg-2));color:var(--muted);line-height:1.7}
-    a{color:var(--mars);text-decoration:none}
-    img{max-width:100%;height:auto;display:block}
-
-    /* ----- header (match homepage) ----- */
-    header{position:sticky;top:0;z-index:60;padding:12px 20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.02)}
-    .nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;border-radius:12px;box-shadow:0 0 20px rgba(255,107,61,0.12);display:flex;align-items:center;justify-content:center;overflow:hidden}
-    .site-title{color:#fff;font-weight:700;font-size:18px}
-    .site-sub{color:var(--muted);font-size:13px}
-
-    /* ----- page container (article width like homepage but readable) ----- */
-    main{max-width:980px;margin:28px auto;padding:0 20px;z-index:2}
-    .post-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:20px;box-shadow:var(--shadow);border:1px solid var(--glass-border)}
-    .post-img{width:100%;height:360px;border-radius:12px;object-fit:cover;margin-bottom:18px;background-position:center;background-size:cover}
-
-    /* ----- meta/title ----- */
-    .post-meta{display:flex;gap:12px;color:rgba(255,255,255,0.78);font-size:14px;margin-bottom:8px}
-    h1{margin:0;font-size:28px;color:#fff}
-    .subtitle{color:var(--muted);margin-top:6px}
-
-    /* ----- section blocks: each block can have separate background ----- */
-    .section-block{padding:18px;border-radius:12px;margin:14px 0;border:1px solid rgba(255,255,255,0.02)}
-    .bg-1{background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.006));} /* neutral */
-    .bg-2{background:linear-gradient(180deg, rgba(255,107,61,0.03), rgba(255,107,61,0.01));} /* warm tint */
-    .bg-3{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));} /* subtle dark tint */
-
-    /* ----- headings styling (distinct background for h2/h3) ----- */
-    h2{
-      display:inline-block;
-      background:var(--mars-light);
-      color:var(--mars-dark);
-      padding:8px 12px;
-      border-radius:10px;
-      margin:6px 0 12px 0;
-      font-weight:700;
-      box-shadow:0 8px 24px rgba(193,65,14,0.06);
+    * {
+      box-sizing: border-box;
+      font-family: 'Cairo', 'Noto Naskh Arabic', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    html, body {
+      height: 100%;
+      background-color: var(--bg-1);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 16px;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      min-height: 100vh;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    a:hover {
+      color: var(--accent-2);
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
-h3{
-  display:inline-block;
-  background:rgba(566,101,65,0.1); /* خلفية أفتح من h2 */
-  color:var(--mars-dark);
-  padding:6px 10px;
-  border-radius:8px;
-  margin:6px 0 10px 0;
-  font-weight:700;
-  box-shadow:0 6px 20px rgba(193,65,14,0.05);
-}
-
-    /* ----- verse/hadith/poem boxes ----- */
-    .verse-box{
-      background:var(--verse-bg);
-      border-left:4px solid var(--mars);
-      padding:14px 16px;
-      border-radius:12px;
-      margin:12px 0;
-      color:#fff;
-      color: #ffe8cf;
-      font-weight:600;
-      line-height:1.95;
-      box-shadow:0 10px 30px rgba(193,65,14,0.06);
-      direction:rtl;
-    }
-    .verse-box small{display:block;color:rgba(255,255,255,0.55);font-weight:500;margin-top:6px}
-
-    /* inline verse highlight (for short quotes inside paragraphs) */
-    .inline-verse{
-      background:rgba(255,255,255,0.02);
-      padding:2px 8px;border-radius:8px;border-right:3px solid var(--mars);color:#ffdcb8;font-weight:600;
+    /* ----- تحسينات للشاشات الصغيرة جداً ----- */
+    @media (max-width: 360px) {
+      html {
+        font-size: 14px;
+      }
     }
 
-    /* content text */
-    .content{color:var(--muted);font-size:17px;line-height:1.9}
-    .content p{margin:12px 0;color: #e6eef3}
-    .content ul, .content ol{margin:12px 0 16px 22px;color:#dce6ee}
-
-    /* quote (poetry) style */
-    .poem{
-      background:linear-gradient(90deg, rgba(255,184,107,0.03), rgba(255,107,61,0.02));
-      padding:12px 16px;border-radius:12px;margin:12px 0;color:#ffdcb8;font-weight:700;border-left:4px solid rgba(255,107,61,0.28)
+    /* ----- header (مطابق للصفحة الرئيسية) ----- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0;
+      background-color: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .nav {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      height: 70px;
+    }
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 18px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 4px 15px rgba(14, 116, 144, 0.15);
+      overflow: hidden;
+      border: 2px solid white;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+    
+    .logo:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(14, 116, 144, 0.25);
+    }
+    
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .site-title {
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .site-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    /* share & buttons */
-    .share-box{margin-top:18px;padding:14px;border-radius:12px;background:rgba(255,255,255,0.02);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-    .share-box a, .share-box button{padding:10px 12px;border-radius:10px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;border:0;cursor:pointer;font-weight:700;font-size:14px;background:rgba(255,255,255,0.02);color:var(--mars);border:1px solid rgba(255,255,255,0.02)}
+    /* ----- زر العودة للجوال ----- */
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 100;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 18px;
+      border-radius: 50px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(14, 116, 144, 0.3);
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(14, 116, 144, 0.4);
+    }
 
-    .back-btn{margin-top:18px;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--mars),#ffb86b);color:#0b0710;font-weight:800;text-decoration:none;box-shadow:0 12px 30px rgba(255,107,61,0.08)}
+    /* زر العودة للشاشات الكبيرة */
+    @media (min-width: 768px) {
+      .back-btn {
+        top: 100px;
+        bottom: auto;
+        left: 30px;
+        border-radius: var(--radius);
+        padding: 12px 20px;
+      }
+    }
 
-    @media (max-width:700px){
-      .post-img{height:220px}
-      h1{font-size:22px}
+    /* ----- page container (مركز مع مساحات مناسبة للجوال) ----- */
+    main {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 16px;
+      position: relative;
+      padding-top: 20px;
+      padding-bottom: 100px;
+    }
+    
+    @media (min-width: 768px) {
+      main {
+        max-width: 800px;
+        padding: 40px 24px;
+      }
+    }
+    
+    /* ----- بطاقة المقال الرئيسية ----- */
+    .post-card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    
+    @media (min-width: 768px) {
+      .post-card {
+        padding: 40px;
+        border-radius: var(--radius-xl);
+        margin-bottom: 40px;
+      }
+      
+      .post-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(135deg, rgba(14, 116, 144, 0.05) 0%, rgba(8, 145, 178, 0.05) 100%);
+        border-radius: 50%;
+        transform: translate(30%, -30%);
+        z-index: 0;
+      }
+    }
+    
+    .post-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* ----- صورة المقال (حجم مناسب للجوال) ----- */
+    .post-img {
+      width: 100%;
+      height: 220px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      background-position: center;
+      background-size: cover;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border);
+    }
+    
+    @media (min-width: 480px) {
+      .post-img {
+        height: 280px;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .post-img {
+        height: 350px;
+        border-radius: var(--radius-lg);
+        margin-bottom: 28px;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .post-img {
+        height: 400px;
+      }
+    }
+    
+    /* ----- معلومات المقال (تنسيق للجوال) ----- */
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    
+    .post-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 20px;
+      background: var(--accent-light);
+      border: 1px solid rgba(14, 116, 144, 0.1);
+      white-space: nowrap;
+    }
+    
+    @media (min-width: 768px) {
+      .post-meta {
+        font-size: 14px;
+        gap: 12px;
+      }
+      
+      .post-meta span {
+        padding: 6px 12px;
+      }
+    }
+    
+    /* ----- عنوان المقال (حجم مناسب للجوال) ----- */
+    h1 {
+      margin: 0;
+      font-size: 26px;
+      color: var(--text-primary);
+      line-height: 1.3;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    
+    @media (min-width: 480px) {
+      h1 {
+        font-size: 28px;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 36px;
+        margin-bottom: 12px;
+      }
+    }
+    
+    /* ----- العنوان الفرعي ----- */
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    @media (min-width: 768px) {
+      .subtitle {
+        font-size: 18px;
+        margin-bottom: 28px;
+        padding-bottom: 24px;
+      }
+    }
+    
+    /* ----- أقسام المقال (تعديلات للجوال) ----- */
+    .section-block {
+      padding: 18px;
+      border-radius: 14px;
+      margin: 24px 0;
+      border: 1px solid var(--border-light);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    
+    .section-block:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent-light);
+    }
+    
+    @media (min-width: 768px) {
+      .section-block {
+        padding: 24px;
+        border-radius: var(--radius-lg);
+        margin: 28px 0;
+      }
+    }
+    
+    /* ----- تلوين خلفيات الأقسام ----- */
+    .bg-1 {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+    }
+    
+    .bg-2 {
+      background: linear-gradient(135deg, rgba(224, 242, 254, 0.6) 0%, rgba(255, 255, 255, 0.9) 100%);
+    }
+    
+    .bg-3 {
+      background: linear-gradient(135deg, rgba(248, 250, 252, 0.8) 0%, rgba(255, 255, 255, 0.95) 100%);
+    }
+    
+    /* ----- عناوين الأقسام (تعديل للجوال) ----- */
+    h2 {
+      color: var(--text-primary);
+      font-size: 20px;
+      font-weight: 800;
+      margin: 0 0 16px 0;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--accent);
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+    
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      right: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 3px;
+    }
+    
+    @media (min-width: 768px) {
+      h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+      }
+      
+      h2::after {
+        width: 80px;
+      }
+    }
+    
+    /* ----- العناوين الفرعية ----- */
+    h3 {
+      color: var(--accent-dark);
+      font-size: 18px;
+      font-weight: 700;
+      margin: 20px 0 14px 0;
+      padding-right: 10px;
+      border-right: 3px solid var(--accent-light);
+    }
+    
+    @media (min-width: 768px) {
+      h3 {
+        font-size: 20px;
+        margin: 24px 0 16px 0;
+        padding-right: 12px;
+        border-right-width: 4px;
+      }
+    }
+    
+    /* ----- محتوى المقال (تحسين للقراءة على الجوال) ----- */
+    .content {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    
+    .content p {
+      margin: 14px 0;
+      color: var(--text-secondary);
+      text-align: justify;
+      hyphens: auto;
+    }
+    
+    .content ul, .content ol {
+      margin: 14px 0 18px 20px;
+      color: var(--text-secondary);
+      padding-right: 8px;
+    }
+    
+    .content li {
+      margin-bottom: 8px;
+      position: relative;
+    }
+    
+    .content li::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-right: -1em;
+      margin-left: 8px;
+    }
+    
+    @media (min-width: 768px) {
+      .content {
+        font-size: 17px;
+        line-height: 1.9;
+      }
+      
+      .content p {
+        margin: 16px 0;
+      }
+      
+      .content ul, .content ol {
+        margin: 16px 0 20px 28px;
+      }
+    }
+    
+    /* ----- صناديق الآيات والأحاديث (تعديل للجوال) ----- */
+    .verse-box {
+      background: linear-gradient(135deg, rgba(224, 242, 254, 0.8) 0%, rgba(186, 230, 253, 0.6) 100%);
+      border-right: 3px solid var(--accent);
+      padding: 16px;
+      border-radius: 12px;
+      margin: 16px 0;
+      color: var(--accent-dark);
+      font-weight: 600;
+      line-height: 1.9;
+      box-shadow: 0 4px 15px rgba(14, 116, 144, 0.08);
+      direction: rtl;
+      text-align: center;
+      font-size: 16px;
+      font-family: 'Noto Naskh Arabic', serif;
+    }
+    
+    .verse-box small {
+      display: block;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 10px;
+      font-size: 13px;
+      text-align: left;
+      font-style: italic;
+    }
+    
+    @media (min-width: 768px) {
+      .verse-box {
+        padding: 20px 24px;
+        border-radius: var(--radius);
+        margin: 20px 0;
+        font-size: 18px;
+        border-right-width: 4px;
+      }
+      
+      .verse-box small {
+        margin-top: 12px;
+        font-size: 14px;
+      }
+    }
+    
+    /* ----- الاقتباسات داخل النص ----- */
+    .inline-verse {
+      background: rgba(14, 116, 144, 0.08);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border-right: 2px solid var(--accent);
+      color: var(--accent-dark);
+      font-weight: 600;
+      font-family: 'Noto Naskh Arabic', serif;
+      font-size: 15px;
+    }
+    
+    @media (min-width: 768px) {
+      .inline-verse {
+        padding: 4px 10px;
+        border-radius: 8px;
+        border-right-width: 3px;
+      }
+    }
+    
+    /* ----- الشعر والاقتباسات الأدبية ----- */
+    .poem {
+      background: linear-gradient(90deg, rgba(224, 242, 254, 0.6) 0%, rgba(186, 230, 253, 0.4) 100%);
+      padding: 16px;
+      border-radius: 12px;
+      margin: 16px 0;
+      color: var(--accent-dark);
+      font-weight: 700;
+      border-right: 3px solid var(--accent);
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.8;
+      font-style: italic;
+    }
+    
+    @media (min-width: 768px) {
+      .poem {
+        padding: 20px 24px;
+        border-radius: var(--radius);
+        margin: 20px 0;
+        font-size: 18px;
+        border-right-width: 4px;
+      }
+    }
+    
+    /* ----- صندوق المشاركة (تعديل للجوال) ----- */
+    .share-box {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    
+    .share-box h3 {
+      width: 100%;
+      margin: 0 0 14px 0;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-primary);
+      font-size: 18px;
+      border-right: none;
+      text-align: center;
+    }
+    
+    .share-box a, .share-box button {
+      padding: 12px 16px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      background: white;
+      color: var(--text-secondary);
+      transition: var(--transition);
+      flex: 1 1 calc(50% - 10px);
+      min-width: 0;
+      min-height: 48px;
+      touch-action: manipulation;
+    }
+    
+    .share-box a:hover, .share-box button:hover {
+      transform: translateY(-3px);
+      color: var(--accent);
+      background: var(--accent-light);
+      border-color: var(--accent-light);
+    }
+    
+    .share-box a i, .share-box button i {
+      font-size: 16px;
+    }
+    
+    @media (min-width: 480px) {
+      .share-box a, .share-box button {
+        flex: 1 1 calc(33.333% - 10px);
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .share-box {
+        margin-top: 40px;
+        padding: 24px;
+        gap: 12px;
+      }
+      
+      .share-box h3 {
+        margin-bottom: 16px;
+      }
+      
+      .share-box a, .share-box button {
+        padding: 12px 20px;
+        flex: 1;
+        min-width: 140px;
+      }
+    }
+    
+    /* ----- الفوتر (تعديل للجوال) ----- */
+    footer {
+      text-align: center;
+      padding: 30px 16px;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.9);
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+      font-size: 14px;
+    }
+    
+    .footer-content {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    
+    .footer-links a {
+      color: var(--text-muted);
+      transition: var(--transition);
+      font-size: 13px;
+      padding: 4px 8px;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    @media (min-width: 768px) {
+      footer {
+        padding: 40px 24px;
+        margin-top: 60px;
+        font-size: 15px;
+      }
+      
+      .footer-links {
+        gap: 24px;
+        margin-top: 20px;
+      }
+      
+      .footer-links a {
+        font-size: 14px;
+        padding: 0;
+      }
+    }
+    
+    /* ----- تأثيرات إضافية ----- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    /* ----- تحسين شريط التمرير ----- */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 3px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    
+    /* ----- تحسينات خاصة للجوال ----- */
+    /* منع تكبير النص عند النقر المزدوج على iOS */
+    * {
+      -webkit-text-size-adjust: 100%;
+    }
+    
+    /* تحسين الأداء على الجوال */
+    .will-change {
+      will-change: transform;
+    }
+    
+    /* زر العودة للأعلى للجوال */
+    #backToTop {
+      position: fixed;
+      bottom: 80px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 6px 20px rgba(14, 116, 144, 0.3);
+      transition: all 0.3s ease;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      touch-action: manipulation;
+    }
+    
+    #backToTop:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(14, 116, 144, 0.4);
+    }
+    
+    /* شريط تقدم القراءة للجوال */
+    #readingProgress {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      z-index: 9999;
+      transition: width 0.2s ease;
+    }
+    
+    /* تحسينات للقراءة على الجوال */
+    .reading-mode {
+      max-width: 100% !important;
+      padding: 20px 16px !important;
+    }
+    
+    .reading-mode .section-block {
+      margin: 20px 0 !important;
+      padding: 16px !important;
+    }
+    
+    /* إخفاء بعض العناصر في وضع القراءة */
+    @media (max-width: 480px) {
+      .hide-on-mobile {
+        display: none !important;
+      }
+    }
+    
+    /* تحسين التباعد بين العناصر على الشاشات الصغيرة */
+    @media (max-width: 360px) {
+      .post-card {
+        padding: 16px;
+      }
+      
+      .section-block {
+        padding: 14px;
+      }
+      
+      .share-box {
+        padding: 16px;
+      }
+      
+      .share-box a, .share-box button {
+        padding: 10px 14px;
+        font-size: 13px;
+      }
+    }
+    
+    /* تحسينات للأجهزة ذات الشاشات الكبيرة (تابلت) */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      main {
+        max-width: 90%;
+      }
+      
+      h1 {
+        font-size: 32px;
+      }
+    }
+    
+    /* دعم للوضع الداكن التلقائي */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-1: #0f172a;
+        --bg-2: #1e293b;
+        --card: #1e293b;
+        --text-primary: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
+        --border: #334155;
+        --border-light: #475569;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        --shadow-hover: 0 10px 40px rgba(0, 0, 0, 0.4);
+        --shadow-card: 0 6px 25px rgba(0, 0, 0, 0.2);
+      }
+      
+      body {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      }
+      
+      .bg-1 {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(30, 41, 59, 0.95) 100%);
+      }
+      
+      .bg-2 {
+        background: linear-gradient(135deg, rgba(14, 116, 144, 0.2) 0%, rgba(30, 41, 59, 0.9) 100%);
+      }
+      
+      .bg-3 {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.95) 100%);
+      }
+      
+      .verse-box {
+        background: linear-gradient(135deg, rgba(14, 116, 144, 0.2) 0%, rgba(8, 145, 178, 0.15) 100%);
+      }
+      
+      .poem {
+        background: linear-gradient(90deg, rgba(14, 116, 144, 0.2) 0%, rgba(8, 145, 178, 0.15) 100%);
+      }
+      
+      .inline-verse {
+        background: rgba(14, 116, 144, 0.2);
+      }
+      
+      .share-box {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(30, 41, 59, 0.95) 100%);
+      }
+      
+      .share-box a, .share-box button {
+        background: #334155;
+        color: #cbd5e1;
+      }
+      
+      footer {
+        background: rgba(30, 41, 59, 0.9);
+      }
     }
   </style>
 </head>
 <body>
+  <!-- شريط تقدم القراءة -->
+  <div id="readingProgress"></div>
+
+  <!-- الهيدر (مطابق للصفحة الرئيسية) -->
   <header>
     <div class="nav">
       <div class="brand">
-        <div class="logo" aria-hidden="true">
-            <a href="index.html"><div class="logo floating" aria-hidden="true"><img src="https://www.appcreator24.com/srv/imgs/gen/3122147_ico.png?v=31" alt="شعار الموقع"></div></a>
-         <a href="index.html">   <div class="site-title">الدين الإسلامي</div></a>
-        </div>
+        <a href="index.html" aria-label="الصفحة الرئيسية">
+          <div class="logo" aria-hidden="true">
+            <img src="https://www.appcreator24.com/srv/imgs/gen/3122147_ico.png?v=31" alt="شعار الدين الإسلامي">
+          </div>
+        </a>
         <div>
-         
-        <div>
-       
+          <a href="index.html">
+            <div class="site-title">الدين الإسلامي</div>
+          </a>
+          <div class="site-sub">مرجعك الإيماني الشامل</div>
         </div>
       </div>
     </div>
   </header>
 
+  <!-- زر العودة للصفحة الرئيسية -->
+  <a href="index.html" class="back-btn fade-in" aria-label="العودة للرئيسية">
+    <i class="fa-solid fa-arrow-right"></i> الرئيسية
+  </a>
+
+  <!-- زر العودة للأعلى -->
+  <button id="backToTop" aria-label="العودة للأعلى">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- المحتوى الرئيسي -->
   <main>
-    <article class="post-card" id="post">
-<div class="post-img" id="postImage" style="background-image:url('ChatGPT Image Dec 3, 2025, 04_48_42 PM.png');" role="img" aria-label="صورة الموضوع"></div>
+    <article class="post-card fade-in">
+      <!-- صورة المقال -->
+      <div class="post-img" id="postImage" style="background-image:url('ChatGPT Image Dec 3, 2025, 04_48_42 PM.png');" role="img" aria-label="صورة الموضوع"></div>
 
-
+      <!-- معلومات المقال -->
       <div class="post-meta">
         <span><i class="fa-regular fa-calendar"></i> <span id="postDate">3 ديسمبر 2025</span></span>
+      
+        <span><i class="fa-regular fa-folder"></i> الإيمان والثبات</span>
       </div>
 
+      <!-- عنوان المقال -->
       <h1 id="postTitle">كيف يثبت المسلم على طريق الله؟</h1>
-      <div class="subtitle">خطوات عملية وروحية لتثبيت القلب على الطريق المستقيم</div>
+      <div class="subtitle">خطوات عملية وروحية لتثبيت القلب على الطريق المستقيم في زمن الفتن والشبهات</div>
 
-      <!-- قسم المقدمة: خلفية منفصلة -->
-      <section class="section-block bg-1">
+      <!-- المقدمة -->
+      <section class="section-block bg-1 fade-in">
         <h2>المقدمة</h2>
         <div class="content">
-          <p>المقدمة: إن الحمد لله، نحمده ونستعينه ونستغفره... أما بعد: فإن الثبات على دين الله مطلب أساسي لكل مسلم صادق يريد سلوك الصراط المستقيم بعزيمة ورشد.</p>
+          <p>إن الحمد لله، نحمده ونستعينه ونستغفره، ونعوذ بالله من شرور أنفسنا وسيئات أعمالنا، من يهده الله فلا مضل له، ومن يضلل فلا هادي له، وأشهد أن لا إله إلا الله وحده لا شريك له، وأشهد أن محمداً عبده ورسوله.</p>
+          <p>أما بعد: فإن الثبات على دين الله مطلب أساسي لكل مسلم صادق يريد سلوك الصراط المستقيم بعزيمة ورشد، في زمن كثرت فيه الفتن، وتنوعت المغريات، وتشعبت السبل.</p>
         </div>
       </section>
 
       <!-- أهمية الموضوع -->
-      <section class="section-block bg-2">
+      <section class="section-block bg-2 fade-in">
         <h2>أهمية الموضوع</h2>
         <div class="content">
-          <p>وتكمن أهمية الموضوع في أمور منها:</p>
+          <p>تكمن أهمية موضوع الثبات على طريق الله في عدة أمور جوهرية:</p>
           <ul>
-            <li>وضع المجتمعات الحالية التي يعيش فيها المسلمون، وأنواع الفتن والمغريات...</li>
-            <li>كثرت حوادث الردة والنكوص على الأعقاب...</li>
-            <li>ارتباط الموضوع بالقلب؛ الذي يقول النبي صلى الله عليه وسلم في شأنه: <span class="inline-verse">«لقلب ابن آدم أشد انقلاباً...»</span></li>
+            <li>الواقع المعاصر الذي يعيشه المسلمون، حيث تكثر الفتن وتتنوع المغريات</li>
+            <li>ظاهرة الارتداد والنكوص على الأعقاب التي انتشرت في هذا الزمان</li>
+            <li>ارتباط الموضوع بسلامة القلب الذي هو ملك الجوارح وسيدها</li>
           </ul>
 
-          <div class="poem">وما سمي الإنسان إلا لنسيانه *** ولا القلب إلا لأنه يتقلب</div>
+          <div class="poem">
+            وما سمي الإنسان إلا لنسيانه<br>
+            ولا القلب إلا لأنه يتقلب
+          </div>
 
-          <p>فتثبيت هذا المتقلب برياح الشهوات والشبهات أمر خطير يحتاج لوسائل جبارة...</p>
+          <p>لذا فإن تثبيت هذا القلب المتقلب برياح الشهوات والشبهات يحتاج إلى وسائل قوية وفاعلة، وقد بينها الله عز وجل في كتابه وعلى لسان رسوله صلى الله عليه وسلم.</p>
         </div>
       </section>
 
-      <!-- وسائل الثبات (كل الوسائل داخل بلوك واحد لكن العناوين الفرعية مميزة) -->
-      <section class="section-block bg-3">
-        <h2>وسائل الثبات</h2>
+      <!-- وسائل الثبات -->
+      <section class="section-block bg-3 fade-in">
+        <h2>وسائل الثبات على طريق الله</h2>
         <div class="content">
-          <p>ومن رحمة الله عز وجل بنا أن بين لنا في كتابه وعلى لسان نبيه وفي سيرته صلى الله عليه وسلم وسائل كثيرة للثبات. أستعرض بعضاً منها:</p>
+          <p>من رحمة الله عز وجل بنا أن بين لنا في كتابه وعلى لسان نبيه صلى الله عليه وسلم وسائل كثيرة للثبات. نستعرض أهمها:</p>
 
-          <h3>أولاً: الإقبال على القرآن</h3>
-          <p>القرآن العظيم وسيلة الثبات الأولى... نص الله على أن الغاية التي من أجلها أنزل هذا الكتاب منجماً مفصلاً هي التثبيت.</p>
+          <h3>أولاً: الإقبال على القرآن الكريم</h3>
+          <p>القرآن العظيم هو وسيلة الثبات الأولى، فقد نص الله على أن الغاية التي من أجلها أنزل هذا الكتاب منجماً مفصلاً هي التثبيت:</p>
 
           <div class="verse-box">
-            {وَقَالَ الَّذِينَ كَفَرُوا لَوْلَا نُزِّلَ عَلَيْهِ الْقُرْآنُ جُمْلَةً ...} [الفرقان:32-33]
-            <small>تفسير: تثبيت فؤاد النبي وتذكير المؤمنين</small>
+            وَقَالَ الَّذِينَ كَفَرُوا لَوْلَا نُزِّلَ عَلَيْهِ الْقُرْآنُ جُمْلَةً وَاحِدَةً ۚ كَذَٰلِكَ لِنُثَبِّتَ بِهِ فُؤَادَكَ ۖ وَرَتَّلْنَاهُ تَرْتِيلًا
+            <small>سورة الفرقان، الآية: 32</small>
           </div>
 
           <h3>ثانياً: التزام شرع الله والعمل الصالح</h3>
-          <p>قال الله تعالى: <span class="inline-verse">{يُثَبِّتُ اللّهُ الَّذِينَ آمَنُواْ...}</span> فالثبات مرتبط بالعمل.</p>
+          <p>قال الله تعالى: <span class="inline-verse">يُثَبِّتُ اللَّهُ الَّذِينَ آمَنُوا بِالْقَوْلِ الثَّابِتِ فِي الْحَيَاةِ الدُّنْيَا وَفِي الْآخِرَةِ</span> (إبراهيم: 27). فالثبات مرتبط بالعمل الصالح والإيمان العملي.</p>
 
-          <h3>ثالثاً: تدبر قصص الأنبياء</h3>
-          <p>الدليل قوله تعالى: <span class="inline-verse">{وَكُلاًّ نَّقُصُّ عَلَيْكَ ...}</span></p>
+          <h3>ثالثاً: تدبر قصص الأنبياء والصالحين</h3>
+          <p>قال تعالى: <span class="inline-verse">وَكُلًّا نَّقُصُّ عَلَيْكَ مِنْ أَنبَاءِ الرُّسُلِ مَا نُثَبِّتُ بِهِ فُؤَادَكَ</span> (هود: 120). ففي قصصهم عِبَر وعظات تثبت القلوب.</p>
 
-          <h3>رابعاً: الدعاء</h3>
+          <h3>رابعاً: الإكثار من الدعاء</h3>
           <div class="verse-box">
-            ربَّنا: <span class="inline-verse">{رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا}</span><br>
-            <small>دعاء لثبات القلب</small>
+            رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ الْوَهَّابُ
+            <small>سورة آل عمران، الآية: 8</small>
           </div>
 
-          <h3>خامساً: ذكر الله</h3>
-          <p>الذكر من أعظم أسباب الثبات، كما في قوله تعالى وأمثلة السنة.</p>
+          <h3>خامساً: مداومة ذكر الله تعالى</h3>
+          <p>الذكر من أعظم أسباب الثبات، قال تعالى: <span class="inline-verse">أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ</span> (الرعد: 28). والقلب المطمئن قلب ثابت.</p>
 
-          <!-- تابع باقي الوسائل داخل نفس القسم -->
-          <h3>سادساً: الحرص على أن يسلك المسلم طريقاً صحيحاً</h3>
-          <p>الطريق الوحيد الصحيح: طريق أهل السنة والجماعة.</p>
+          <h3>سادساً: لزوم جماعة المسلمين والطريق المستقيم</h3>
+          <p>الطريق الوحيد الصحيح هو طريق أهل السنة والجماعة، ولزوم الجماعة من أسباب الثبات.</p>
 
-          <h3>سابعاً: التربية</h3>
-          <p>التربية الإيمانية العلمية المتدرجة...</p>
+          <h3>سابعاً: التربية الإيمانية المتدرجة</h3>
+          <p>التربية الإيمانية العلمية العملية المتدرجة تبني الشخصية المسلمة المتزنة الثابتة.</p>
 
-          <h3>ثامنًا إلى الخامسة عشر: ...</h3>
-          <p>تفصيل باقي الوسائل كما في نصك الأصلي.</p>
-
+          <h3>ثامناً: الصحبة الصالحة</h3>
+          <p>قال صلى الله عليه وسلم: <span class="inline-verse">المرء على دين خليله، فلينظر أحدكم من يخالل</span>. فالصحبة الصالحة تعين على الثبات.</p>
         </div>
       </section>
 
-      <!-- مواطن الثبات مع بلوكات منفصلة -->
-      <section class="section-block bg-1">
-        <h2>مواطن الثبات</h2>
+      <!-- مواطن الثبات -->
+      <section class="section-block bg-1 fade-in">
+        <h2>مواطن يحتاج فيها المسلم إلى الثبات</h2>
         <div class="content">
-          <p>ذكرنا بعض المواطن بأمثلة موجزة:</p>
+          <p>هناك مواطن كثيرة يحتاج فيها المسلم إلى الثبات، نذكر أهمها:</p>
 
-          <h3>أولاً: الثبات في الفتن</h3>
+          <h3>أولاً: الثبات في مواجهة الفتن</h3>
           <ul>
-            <li>فتنة المال...</li>
-            <li>فتنة الجاه...</li>
-            <li>فتنة الدجال...</li>
+            <li>فتنة المال والثروة</li>
+            <li>فتنة الجاه والمنصب</li>
+            <li>فتنة الشهوات والمغريات</li>
+            <li>فتنة الشبهات والشكوك</li>
           </ul>
 
-          <h3>ثانياً: الثبات في الجهاد</h3>
-          <p>مثال: {يَا أَيُّهَا الَّذِينَ آمَنُواْ ...}</p>
+          <h3>ثانياً: الثبات في ساحات الجهاد</h3>
+          <p>قال تعالى: <span class="inline-verse">يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا لَقِيتُمْ فِئَةً فَاثْبُتُوا</span> (الأنفال: 45). الثبات في الجهاد من علامات الإيمان.</p>
 
-          <h3>ثالثاً: الثبات على المنهج</h3>
-          <p>المبادئ أغلى من الأرواح...</p>
+          <h3>ثالثاً: الثبات على المبادئ والقيم</h3>
+          <p>المبادئ والقيم أغلى من الأرواح، والثبات عليها شرف وعز.</p>
 
+          <h3>رابعاً: الثبات في أوقات الشدائد والمحن</h3>
+          <p>عند نزول المصائب والابتلاءات يحتاج المسلم إلى الثبات على الإيمان والرضا بقضاء الله.</p>
         </div>
       </section>
 
-      <!-- خاتمة -->
-      <section class="section-block bg-2">
+      <!-- الخاتمة -->
+      <section class="section-block bg-2 fade-in">
+        <h2>خاتمة وتوصيات</h2>
         <div class="content">
-          <p>اللهم اجعلنا منهم، اللهم إنا نسألك الثبات في الأمر والعزيمة على الرشد، وآخر دعوانا أن الحمد لله رب العالمين.</p>
-          <p>يمكنك إضافة صور، فقرات، اقتباسات، نقاط، أو أي شيء تريده داخل هذه المنطقة.</p>
+          <p>اللهم اجعلنا من عبادك الثابتين على دينك، اللهم إنا نسألك الثبات في الأمر والعزيمة على الرشد، اللهم ثبت قلوبنا على دينك، وارزقنا حسن الخاتمة.</p>
+          <p>ونوصي كل مسلم ومسلمة بالتزام هذه الوسائل، والعمل بها، والصبر على الطاعة، ومجاهدة النفس، ولزوم الجماعة، والاستعانة بالله في كل حال.</p>
+          <div class="verse-box">
+            إِنَّ الَّذِينَ قَالُوا رَبُّنَا اللَّهُ ثُمَّ اسْتَقَامُوا تَتَنَزَّلُ عَلَيْهِمُ الْمَلَائِكَةُ أَلَّا تَخَافُوا وَلَا تَحْزَنُوا وَأَبْشِرُوا بِالْجَنَّةِ الَّتِي كُنتُمْ تُوعَدُونَ
+            <small>سورة فصلت، الآية: 30</small>
+          </div>
+          <p>وآخر دعوانا أن الحمد لله رب العالمين، وصلى الله وسلم على نبينا محمد وعلى آله وصحبه أجمعين.</p>
         </div>
       </section>
 
-      <!-- share -->
-      <div class="share-box" id="share" aria-label="مشاركة المنشور">
+      <!-- صندوق المشاركة -->
+      <div class="share-box fade-in" id="share" aria-label="مشاركة المقال">
+        <h3>شارك هذا المقال مع أحبابك</h3>
         <a id="shareFacebook" href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i> فيسبوك</a>
         <a id="shareWhatsapp" href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
         <a id="shareTelegram" href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-telegram-plane"></i> تيليجرام</a>
         <a id="shareX" href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i> X</a>
         <a id="shareEmail" href="#" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-envelope"></i> إيميل</a>
-        <button id="copyLink" aria-label="نسخ رابط المنشور"><i class="fa-regular fa-copy"></i> نسخ الرابط</button>
-        <button id="nativeShare" aria-label="مشاركة عبر تطبيقات الجهاز"><i class="fa-solid fa-share-alt"></i> مشاركة</button>
+        <button id="copyLink" aria-label="نسخ رابط المقال"><i class="fa-regular fa-copy"></i> نسخ الرابط</button>
+        <button id="printArticle" aria-label="طباعة المقال"><i class="fa-solid fa-print"></i> طباعة</button>
+        <button id="nativeShare" aria-label="مشاركة عبر التطبيقات"><i class="fa-solid fa-share-alt"></i> مشاركة</button>
       </div>
-
-      <a href="index.html" class="back-btn" aria-label="العودة للرئيسية"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</a>
     </article>
   </main>
 
-  <footer style="text-align:center;padding:26px 0;color:var(--muted)"><span id="year"></span> © جميع الحقوق محفوظه لموقع «الدين الإسلامي»</footer>
+  <!-- الفوتر -->
+  <footer>
+    <div class="footer-content">
+      <div>© <span id="year"></span> جميع الحقوق محفوظة لموقع «الدين الإسلامي»</div>
+      <div class="footer-links">
+        <a href="index.html">الرئيسية</a>
+        
+      </div>
+    </div>
+  </footer>
 
   <script>
-    // السنة والروابط المشاركة
+    // ========== YEAR ==========
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // ========== SHARE FUNCTIONALITY ==========
     const pageUrl = encodeURIComponent(window.location.href);
     const titleText = encodeURIComponent(document.getElementById('postTitle')?.innerText || document.title);
 
-    const fb = document.getElementById('shareFacebook'); if(fb) fb.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-    const wa = document.getElementById('shareWhatsapp'); if(wa) wa.href = `https://api.whatsapp.com/send?text=${titleText}%20${pageUrl}`;
-    const tg = document.getElementById('shareTelegram'); if(tg) tg.href = `https://t.me/share/url?url=${pageUrl}&text=${titleText}`;
-    const x = document.getElementById('shareX'); if(x) x.href = `https://twitter.com/intent/tweet?text=${titleText}&url=${pageUrl}`;
-    const em = document.getElementById('shareEmail'); if(em) em.href = `mailto:?subject=${titleText}&body=${titleText}%0A${pageUrl}`;
+    // روابط المشاركة
+    const fb = document.getElementById('shareFacebook');
+    if(fb) fb.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+    
+    const wa = document.getElementById('shareWhatsapp');
+    if(wa) wa.href = `https://api.whatsapp.com/send?text=${titleText}%20${pageUrl}`;
+    
+    const tg = document.getElementById('shareTelegram');
+    if(tg) tg.href = `https://t.me/share/url?url=${pageUrl}&text=${titleText}`;
+    
+    const x = document.getElementById('shareX');
+    if(x) x.href = `https://twitter.com/intent/tweet?text=${titleText}&url=${pageUrl}`;
+    
+    const em = document.getElementById('shareEmail');
+    if(em) em.href = `mailto:?subject=${titleText}&body=${titleText}%0A%0A${pageUrl}`;
 
+    // زر نسخ الرابط
     document.getElementById('copyLink')?.addEventListener('click', async () => {
-      try { await navigator.clipboard.writeText(window.location.href); alert('تم نسخ الرابط'); }
-      catch(e){ prompt('انسخ الرابط من هنا:', window.location.href); }
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        // رسالة تنبيه للجوال
+        const alertMsg = document.createElement('div');
+        alertMsg.textContent = 'تم نسخ الرابط!';
+        alertMsg.style.cssText = `
+          position: fixed;
+          bottom: 120px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: var(--accent);
+          color: white;
+          padding: 12px 24px;
+          border-radius: 8px;
+          z-index: 10000;
+          font-weight: bold;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+          animation: fadeInOut 2s ease-in-out;
+        `;
+        document.body.appendChild(alertMsg);
+        
+        setTimeout(() => {
+          document.body.removeChild(alertMsg);
+        }, 2000);
+      } catch(e) {
+        prompt('انسخ الرابط من هنا:', window.location.href);
+      }
     });
 
+    // زر الطباعة
+    document.getElementById('printArticle')?.addEventListener('click', () => {
+      window.print();
+    });
+
+    // المشاركة الأصلية (إذا كان المتصفح يدعمها)
     document.getElementById('nativeShare')?.addEventListener('click', async () => {
       if(navigator.share) {
-        try { await navigator.share({title: document.getElementById('postTitle').innerText, url: window.location.href}); }
-        catch(e){}
-      } else alert('خاصية المشاركة غير مدعومة في متصفحك.');
+        try {
+          await navigator.share({
+            title: document.getElementById('postTitle').innerText,
+            text: document.querySelector('.subtitle').innerText,
+            url: window.location.href,
+          });
+        } catch(e) {
+          console.log('تم إلغاء المشاركة');
+        }
+      } else {
+        alert('خاصية المشاركة غير مدعومة في متصفحك.');
+      }
     });
+
+    // ========== ANIMATIONS ==========
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // مراقبة العناصر لإضافة الأنيميشن
+    document.querySelectorAll('.section-block').forEach(section => {
+      observer.observe(section);
+    });
+
+    // ========== PROGRESS INDICATOR ==========
+    const progressBar = document.getElementById('readingProgress');
+    
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (progressBar) {
+        progressBar.style.width = scrolled + "%";
+      }
+    });
+
+    // ========== BACK TO TOP ==========
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.style.display = 'flex';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+
+    // ========== MOBILE SPECIFIC IMPROVEMENTS ==========
+    
+    // منع الزوم المزدوج على iOS
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(event) {
+      const now = (new Date()).getTime();
+      if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+      }
+      lastTouchEnd = now;
+    }, false);
+    
+    // تحسين الأداء على الهواتف
+    if ('ontouchstart' in window) {
+      document.body.classList.add('touch-device');
+    }
+    
+    // إضافة أنيميشن للتنبيهات
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeInOut {
+        0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+        15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // تحسين تجربة اللمس
+    document.addEventListener('touchstart', function() {}, {passive: true});
+    
+    // دعم الوضع الداكن التلقائي
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.classList.add('dark-mode');
+    }
+    
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (e.matches) {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+    });
+    
+    // تحسين أداء الصور على الجوال
+    document.querySelectorAll('img').forEach(img => {
+      img.loading = 'lazy';
+    });
+    
+    // إضافة تأثير للضغط على الأزرار للجوال
+    document.querySelectorAll('button, a[role="button"]').forEach(btn => {
+      btn.addEventListener('touchstart', function() {
+        this.style.transform = 'scale(0.95)';
+      });
+      
+      btn.addEventListener('touchend', function() {
+        this.style.transform = '';
+      });
+    });
+    
+    // منع التمرير الأفقي على الجوال
+    document.body.addEventListener('touchmove', function(e) {
+      if (e.touches.length > 1) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+    
+    // تحسين أداء التمرير على iOS
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+      document.body.style.webkitOverflowScrolling = 'touch';
+    }
   </script>
 </body>
 </html>
-
-
-
