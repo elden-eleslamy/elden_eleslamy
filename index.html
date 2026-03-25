@@ -6,1485 +6,1523 @@
   <title>الدين الإسلامي — الصفحة الرئيسية</title>
   <link rel="icon" type="image/png" href="logo.png"/>
 
-  <!-- خطوط -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- أيقونات -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"/>
 
-  <meta name="theme-color" content="#f8fafc">
-
   <style>
-    :root{
-      /* ألوان فاتحة احترافية */
-      --bg-1: #f8fafc; /* خلفية رئيسية فاتحة */
-      --bg-2: #ffffff; /* خلفية ثانوية بيضاء */
-      --card: #ffffff;
-      --glass: rgba(255,255,255,0.85);
-      --text-primary: #1e293b;
-      --text-secondary: #475569;
-      --text-muted: #64748b;
-      --accent: #0e7490; /* أزرق فاتح أنيق */
-      --accent-2: #0891b2; /* أزرق متوسط */
-      --accent-light: #e0f2fe; /* أزرق فاتح للخلفيات */
-      --border: #e2e8f0;
-      --border-light: #f1f5f9;
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-      --shadow-hover: 0 10px 40px rgba(0, 0, 0, 0.08);
-      --radius: 12px;
-      --radius-lg: 16px;
-      --transition: all 0.3s ease;
+    :root {
+      --cream:       #faf8f4;
+      --ivory:       #f5f2eb;
+      --white:       #ffffff;
+      --gold:        #b8860b;
+      --gold-light:  #d4a017;
+      --gold-pale:   #fdf6e3;
+      --gold-border: rgba(184,134,11,0.18);
+      --teal:        #0e6e6e;
+      --teal-2:      #0a9090;
+      --teal-light:  #e6f4f4;
+      --text-dark:   #1a1a2e;
+      --text-mid:    #3d3d5c;
+      --text-soft:   #6b6b8a;
+      --text-muted:  #9898b0;
+      --border:      #e8e4d9;
+      --shadow-sm:   0 2px 12px rgba(14,110,110,0.06);
+      --shadow-md:   0 8px 30px rgba(14,110,110,0.10);
+      --shadow-lg:   0 20px 60px rgba(14,110,110,0.14);
+      --radius:      14px;
+      --radius-lg:   20px;
+      --radius-xl:   28px;
+      --ease:        cubic-bezier(.4,0,.2,1);
     }
 
-    * {
-      box-sizing: border-box;
-      font-family: 'Cairo', 'Noto Naskh Arabic', sans-serif;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html, body {
-      height: 100%;
-      background-color: var(--bg-1);
-      color: var(--text-secondary);
-      line-height: 1.6;
-      font-size: 16px;
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-      min-height: 100vh;
+      font-family: 'Cairo', sans-serif;
+      background: var(--cream);
+      color: var(--text-mid);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: var(--transition);
+    /* ─── Geometric pattern background ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 15% 85%, rgba(14,110,110,0.04) 0%, transparent 50%),
+        radial-gradient(circle at 85% 15%, rgba(184,134,11,0.04) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(14,110,110,0.02) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
     }
 
-    a:hover {
-      color: var(--accent-2);
-    }
+    a { color: var(--teal); text-decoration: none; transition: color .25s var(--ease); }
+    a:hover { color: var(--gold); }
 
-    /* HEADER احترافي */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--ivory); }
+    ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+
+    /* ════════════════════════════
+       HEADER
+    ════════════════════════════ */
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      padding: 0;
-      background-color: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 1px 30px rgba(14,110,110,0.06);
     }
 
     .nav {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 32px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      height: 80px;
+      height: 76px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
+      text-decoration: none;
     }
 
-    .logo {
-      width: 56px;
-      height: 56px;
-      border-radius: var(--radius);
+    .logo-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-2));
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-weight: 800;
-      font-size: 20px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 6px 20px rgba(14, 116, 144, 0.15);
       overflow: hidden;
-      border: 2px solid white;
+      box-shadow: 0 6px 18px rgba(14,110,110,0.22);
+      border: 2px solid rgba(255,255,255,0.8);
+      flex-shrink: 0;
     }
 
-    .logo img {
+    .logo-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
-    .site-title {
-      font-weight: 800;
-      font-size: 22px;
-      color: var(--text-primary);
-      letter-spacing: -0.5px;
+    .brand-text .site-title {
+      font-weight: 900;
+      font-size: 20px;
+      color: var(--text-dark);
+      letter-spacing: -0.3px;
+      line-height: 1.2;
     }
 
-    .site-sub {
-      font-size: 13px;
+    .brand-text .site-sub {
+      font-size: 12px;
       color: var(--text-muted);
-      margin-top: 2px;
+      margin-top: 1px;
     }
 
-    /* القائمة الرئيسية */
     nav ul {
       display: flex;
-      gap: 8px;
+      gap: 4px;
       list-style: none;
-      margin: 0;
-      padding: 0;
       align-items: center;
     }
 
     nav a {
       font-weight: 600;
-      color: var(--text-secondary);
-      padding: 10px 18px;
+      font-size: 14.5px;
+      color: var(--text-soft);
+      padding: 9px 16px;
       border-radius: 10px;
-      transition: var(--transition);
-      font-size: 15px;
+      transition: all .25s var(--ease);
+      position: relative;
     }
 
-    nav a:hover {
-      color: var(--accent);
-      background-color: var(--accent-light);
-      transform: translateY(-2px);
+    nav a:hover, nav a.active {
+      color: var(--teal);
+      background: var(--teal-light);
     }
 
-    nav a.active {
-      color: var(--accent);
-      background-color: var(--accent-light);
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-2));
+      color: white !important;
       font-weight: 700;
-    }
-
-    .cta {
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      border: 0;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-weight: 700;
-      color: white;
-      box-shadow: 0 6px 20px rgba(14, 116, 144, 0.2);
-      transition: var(--transition);
+      font-size: 14px;
+      box-shadow: 0 6px 20px rgba(14,110,110,0.25);
+      transition: all .3s var(--ease);
+      border: none;
       cursor: pointer;
+      white-space: nowrap;
     }
 
-    .cta:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(14, 116, 144, 0.3);
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(14,110,110,0.35);
+      color: white !important;
     }
 
     .menu-btn {
       display: none;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 10px;
+      background: none;
       border: 1px solid var(--border);
-      background: white;
-      font-size: 18px;
-      color: var(--text-secondary);
+      border-radius: 10px;
+      padding: 9px 12px;
+      font-size: 17px;
+      color: var(--text-soft);
       cursor: pointer;
     }
 
-    /* زر فتح/إغلاق القائمة الجانبية */
-    .sidebar-toggle {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: white;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 999;
-      box-shadow: 0 6px 20px rgba(14, 116, 144, 0.3);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .sidebar-toggle:hover {
-      transform: scale(1.1);
-      box-shadow: 0 10px 30px rgba(14, 116, 144, 0.4);
-    }
-
-    .sidebar-toggle i {
-      transition: transform 0.3s ease;
-    }
-
-    .sidebar-toggle.closed i {
-      transform: rotate(180deg);
-    }
-
-    /* التخطيط الرئيسي */
-    .container {
-      max-width: 1200px;
-      margin: 32px auto;
-      padding: 0 24px;
+    /* ════════════════════════════
+       LAYOUT
+    ════════════════════════════ */
+    .page-wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 36px 32px 60px;
       display: grid;
       grid-template-columns: 1fr 340px;
-      gap: 32px;
+      gap: 36px;
       align-items: start;
-      z-index: 2;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    @media (max-width: 1024px) {
-      .container {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-      
-      .sidebar-toggle {
-        display: none;
-      }
-    }
-
-    @media (max-width: 880px) {
-      .container {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        padding-bottom: 60px;
-      }
-    }
-
-    /* قسم البطل (Hero) */
-    .hero {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
-      padding: 32px;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      margin-bottom: 24px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 200px;
-      height: 200px;
-      background: linear-gradient(135deg, rgba(14, 116, 144, 0.05) 0%, rgba(8, 145, 178, 0.05) 100%);
-      border-radius: 50%;
-      transform: translate(30%, -30%);
-      z-index: 0;
-    }
-
-    .hero > * {
       position: relative;
       z-index: 1;
     }
 
-    .hero-row {
+    /* ════════════════════════════
+       HERO
+    ════════════════════════════ */
+    .hero {
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: 38px 40px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    /* Decorative Islamic star pattern (CSS) */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 260px;
+      height: 260px;
+      background: conic-gradient(
+        from 0deg,
+        rgba(14,110,110,0.04) 0deg 45deg,
+        transparent 45deg 90deg,
+        rgba(184,134,11,0.04) 90deg 135deg,
+        transparent 135deg 180deg,
+        rgba(14,110,110,0.04) 180deg 225deg,
+        transparent 225deg 270deg,
+        rgba(184,134,11,0.04) 270deg 315deg,
+        transparent 315deg 360deg
+      );
+      border-radius: 50%;
+      animation: rotate 30s linear infinite;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(184,134,11,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    @keyframes rotate { to { transform: rotate(360deg); } }
+
+    .hero-inner { position: relative; z-index: 1; }
+
+    .hero-top {
       display: flex;
+      align-items: flex-start;
       justify-content: space-between;
-      gap: 20px;
-      align-items: center;
+      gap: 32px;
       flex-wrap: wrap;
     }
 
-    .hero h1 {
-      margin: 0;
-      font-size: 32px;
-      color: var(--text-primary);
-      line-height: 1.3;
-      font-weight: 800;
-      margin-bottom: 8px;
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px;
+      background: var(--gold-pale);
+      border: 1px solid var(--gold-border);
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 16px;
     }
+
+    .hero-eyebrow .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-family: 'Amiri', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.35;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h1 .accent { color: var(--teal); }
 
     .hero p {
-      margin: 0;
-      color: var(--text-secondary);
-      font-size: 17px;
-      max-width: 600px;
+      color: var(--text-soft);
+      font-size: 16px;
+      max-width: 520px;
+      margin-bottom: 28px;
     }
 
-    .search {
+    .hero-stats {
       display: flex;
-      gap: 0;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      display: flex;
       align-items: center;
-      background: white;
-      padding: 4px;
-      border-radius: 12px;
+      gap: 12px;
+      padding: 14px 20px;
+      background: var(--cream);
       border: 1px solid var(--border);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-      transition: var(--transition);
-      min-width: 280px;
+      border-radius: 14px;
     }
 
-    .search:focus-within {
-      border-color: var(--accent);
-      box-shadow: 0 4px 15px rgba(14, 116, 144, 0.1);
-    }
-
-    .search input {
-      border: 0;
-      outline: 0;
-      padding: 14px 18px;
-      font-size: 15px;
-      background: transparent;
-      width: 100%;
-      color: var(--text-primary);
-      font-family: 'Cairo', sans-serif;
-    }
-
-    .search input::placeholder {
-      color: var(--text-muted);
-    }
-
-    .search button {
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      border: 0;
-      padding: 14px 24px;
+    .stat-icon {
+      width: 38px;
+      height: 38px;
       border-radius: 10px;
-      font-weight: 700;
-      color: white;
-      cursor: pointer;
-      transition: var(--transition);
+      background: var(--teal-light);
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+    }
+
+    .stat-val {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--text-dark);
+      line-height: 1;
+    }
+
+    .stat-lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Search */
+    .search-wrap {
+      min-width: 300px;
+      max-width: 360px;
+      flex-shrink: 0;
+    }
+
+    .search-box {
+      display: flex;
+      background: var(--cream);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color .25s var(--ease), box-shadow .25s var(--ease);
+    }
+
+    .search-box:focus-within {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 4px rgba(14,110,110,0.08);
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 14px 18px;
+      font-size: 14px;
       font-family: 'Cairo', sans-serif;
+      color: var(--text-dark);
+      outline: none;
     }
 
-    .search button:hover {
-      background: linear-gradient(90deg, var(--accent-2), var(--accent));
-    }
+    .search-box input::placeholder { color: var(--text-muted); }
 
-    /* شارات */
-    .badge {
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 50px;
-      background: linear-gradient(90deg, rgba(14, 116, 144, 0.08), rgba(8, 145, 178, 0.04));
-      color: var(--accent);
+    .search-box button {
+      background: linear-gradient(135deg, var(--teal), var(--teal-2));
+      border: none;
+      padding: 12px 22px;
+      color: white;
+      font-family: 'Cairo', sans-serif;
       font-weight: 700;
       font-size: 14px;
-      border: 1px solid rgba(14, 116, 144, 0.1);
+      cursor: pointer;
+      border-radius: 10px;
+      margin: 4px;
+      transition: opacity .2s;
     }
 
-    /* المقالات */
+    .search-box button:hover { opacity: .88; }
+
+    .search-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #059669;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 50px;
+      padding: 5px 12px;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    .date-chip {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 5px 14px;
+    }
+
+    /* ════════════════════════════
+       SECTION HEADER
+    ════════════════════════════ */
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title h2 {
+      font-family: 'Amiri', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .section-title .line {
+      width: 4px;
+      height: 26px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, var(--teal), var(--gold));
+    }
+
+    .filter-select {
+      border: 1.5px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: white;
+      color: var(--text-mid);
+      font-family: 'Cairo', sans-serif;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+      transition: border-color .2s;
+    }
+
+    .filter-select:focus { border-color: var(--teal); }
+
+    /* ════════════════════════════
+       ARTICLE GRID
+    ════════════════════════════ */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
-      margin-top: 20px;
-    }
-
-    @media (max-width: 880px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     .card {
-      background: var(--card);
+      background: white;
       border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: var(--shadow);
       overflow: hidden;
-      transition: var(--transition);
-      border: 1px solid var(--border-light);
-      height: 100%;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity .5s var(--ease), transform .5s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
     }
 
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--accent-light);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(14,110,110,0.2);
     }
 
-    .thumb {
+    .card-thumb {
       width: 100%;
       height: 200px;
-      border-radius: 10px;
-      object-fit: cover;
-      margin-bottom: 20px;
-      background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+      background: linear-gradient(135deg, var(--teal-light), #d6efef);
+      position: relative;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
     }
 
-    .thumb img {
+    .card-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform .5s var(--ease);
     }
 
-    .meta {
+    .card:hover .card-thumb img { transform: scale(1.05); }
+
+    .thumb-placeholder {
+      font-size: 56px;
+      opacity: .35;
+      color: var(--teal);
+    }
+
+    /* Category badge on thumb */
+    .cat-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      padding: 5px 13px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      background: white;
+      color: var(--teal);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    }
+
+    .card-body {
+      padding: 24px;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
       align-items: center;
-      margin-bottom: 12px;
+      gap: 10px;
+      font-size: 12.5px;
       color: var(--text-muted);
-      font-size: 14px;
-    }
-
-    .title {
-      font-weight: 800;
-      color: var(--text-primary);
-      font-size: 20px;
-      line-height: 1.4;
       margin-bottom: 12px;
     }
 
-    .excerpt {
-      color: var(--text-secondary);
-      font-size: 15px;
-      margin-bottom: 20px;
-      flex-grow: 1;
+    .card-meta i { font-size: 11px; }
+
+    .card-title {
+      font-family: 'Amiri', serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.45;
+      margin-bottom: 12px;
     }
 
-    .read-link {
+    .card-excerpt {
+      color: var(--text-soft);
+      font-size: 14.5px;
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .read-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-top: 8px;
       padding: 10px 18px;
       border-radius: 10px;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
+      color: var(--teal);
       font-weight: 700;
+      font-size: 13.5px;
       background: white;
-      color: var(--accent);
-      transition: var(--transition);
-      align-self: flex-start;
+      transition: all .25s var(--ease);
     }
 
-    .read-link:hover {
-      background: var(--accent-light);
-      border-color: var(--accent);
-      transform: translateX(-5px);
+    .read-btn:hover {
+      background: var(--teal);
+      color: white;
+      border-color: var(--teal);
+      gap: 12px;
     }
 
-    /* الشريط الجانبي - الإصدار الجديد */
+    .read-btn i { font-size: 11px; transition: transform .25s var(--ease); }
+    .read-btn:hover i { transform: translateX(-3px); }
+
+    /* ════════════════════════════
+       SIDEBAR
+    ════════════════════════════ */
     aside {
       display: flex;
       flex-direction: column;
       gap: 24px;
       position: sticky;
-      top: 100px;
-      height: fit-content;
-      transition: all 0.3s ease;
-    }
-
-    /* إخفاء الشريط الجانبي على الشاشات الصغيرة */
-    @media (max-width: 1024px) {
-      aside {
-        display: none;
-      }
-      
-      .container {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* شريط جانبي منفصل للجوال */
-    .mobile-sidebar {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 320px;
-      max-width: 90%;
-      height: 100vh;
-      background: white;
-      z-index: 9999;
-      padding: 24px;
-      overflow-y: auto;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
-      border-left: 1px solid var(--border);
-    }
-
-    .mobile-sidebar.active {
-      transform: translateX(0);
-    }
-
-    .mobile-sidebar .close-sidebar {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: transparent;
-      border: none;
-      font-size: 24px;
-      color: var(--text-secondary);
-      cursor: pointer;
-      z-index: 10001;
-    }
-
-    /* زر فتح الشريط الجانبي للجوال */
-    .mobile-sidebar-toggle {
-      display: none;
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: white;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 9998;
-      box-shadow: 0 6px 20px rgba(14, 116, 144, 0.3);
-      transition: all 0.3s ease;
-    }
-
-    .mobile-sidebar-toggle:hover {
-      transform: scale(1.1);
-      box-shadow: 0 10px 30px rgba(14, 116, 144, 0.4);
-    }
-
-    @media (max-width: 1024px) {
-      .mobile-sidebar-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .mobile-sidebar {
-        display: block;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .mobile-sidebar-toggle,
-      .sidebar-toggle {
-        bottom: 20px;
-        right: 20px;
-      }
-      
-      .mobile-sidebar {
-        width: 100%;
-        max-width: 100%;
-      }
+      top: 96px;
     }
 
     .widget {
-      background: var(--card);
+      background: white;
       border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border-light);
+      padding: 26px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      opacity: 0;
+      transform: translateX(20px);
+      transition: opacity .5s var(--ease), transform .5s var(--ease);
     }
 
-    .widget h3 {
-      margin: 0 0 20px 0;
-      font-size: 18px;
-      color: var(--text-primary);
-      font-weight: 800;
+    .widget.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .widget-title {
+      font-family: 'Amiri', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--ivory);
       position: relative;
-      padding-bottom: 12px;
     }
 
-    .widget h3::after {
-      content: "";
+    .widget-title::after {
+      content: '';
       position: absolute;
-      bottom: 0;
+      bottom: -2px;
       right: 0;
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      border-radius: 3px;
+      width: 50px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+      border-radius: 1px;
     }
 
+    /* Service links */
     .links-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
     .links-list a {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 14px 16px;
-      border-radius: 10px;
-      color: var(--text-secondary);
-      transition: var(--transition);
-      background: var(--bg-1);
-      border: 1px solid var(--border-light);
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      color: var(--text-mid);
+      font-size: 14px;
+      font-weight: 600;
+      transition: all .25s var(--ease);
     }
 
     .links-list a:hover {
-      transform: translateX(-5px);
-      color: var(--accent);
-      background: var(--accent-light);
-      border-color: var(--accent-light);
+      background: var(--teal-light);
+      border-color: rgba(14,110,110,0.2);
+      color: var(--teal);
+      transform: translateX(-4px);
     }
 
-    .links-list a i {
-      color: var(--accent);
-      font-size: 16px;
-      width: 20px;
-      text-align: center;
-    }
-
-    .socials {
+    .link-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--teal-light);
+      color: var(--teal);
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0;
+      transition: background .25s var(--ease);
+    }
+
+    .links-list a:hover .link-icon {
+      background: var(--teal);
+      color: white;
+    }
+
+    /* Social links */
+    .socials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
 
-    .socials a {
-      display: inline-flex;
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 12px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: all .25s var(--ease);
+    }
+
+    .social-btn:hover {
+      transform: translateY(-3px);
+      color: var(--teal);
+      background: var(--teal-light);
+      border-color: rgba(14,110,110,0.2);
+    }
+
+    /* Prayer times */
+    .location-chip {
+      display: flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 18px;
+      padding: 10px 14px;
       border-radius: 10px;
-      background: var(--bg-1);
-      border: 1px solid var(--border-light);
-      color: var(--text-secondary);
+      background: var(--teal-light);
+      border: 1px solid rgba(14,110,110,0.12);
+      color: var(--teal);
+      font-size: 13px;
       font-weight: 600;
-      flex: 1;
-      min-width: calc(50% - 5px);
-      justify-content: center;
-      transition: var(--transition);
+      margin-bottom: 16px;
     }
 
-    .socials a:hover {
-      transform: translateY(-3px);
-      color: var(--accent);
-      background: var(--accent-light);
-      border-color: var(--accent-light);
-    }
-
-    .socials a i {
-      font-size: 16px;
-    }
-
-    /* مواقيت الصلاة */
-    .prayer-list {
+    .prayer-grid {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
-    .prayer-item {
+    .prayer-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 16px;
+      padding: 11px 16px;
       border-radius: 10px;
-      background: var(--bg-1);
-      border: 1px solid var(--border-light);
-      transition: var(--transition);
-    }
-
-    .prayer-item:hover {
-      background: var(--accent-light);
-      border-color: var(--accent-light);
-    }
-
-    .prayer-time {
-      font-weight: 800;
-      color: var(--accent);
-      font-size: 16px;
-    }
-
-    /* التذييل */
-    footer {
-      margin-top: 60px;
-      padding: 40px 0;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 15px;
-      background: rgba(255, 255, 255, 0.8);
-      border-top: 1px solid var(--border);
-    }
-
-    /* التكيف مع الشاشات الصغيرة */
-    @media (max-width: 880px) {
-      nav ul {
-        display: none;
-      }
-      
-      .menu-btn {
-        display: inline-flex;
-      }
-      
-      .cta {
-        display: none;
-      }
-      
-      .logo {
-        width: 48px;
-        height: 48px;
-      }
-      
-      .site-title {
-        font-size: 18px;
-      }
-      
-      .hero h1 {
-        font-size: 28px;
-      }
-      
-      .hero-row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .search {
-        min-width: 100%;
-      }
-      
-      .nav {
-        padding: 0 20px;
-        height: 70px;
-      }
-      
-      .container {
-        padding: 0 20px;
-      }
-    }
-
-    /* الأيقونات الاجتماعية في الأسفل */
-    .social-box {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin: 50px auto;
-      max-width: 1000px;
-      padding: 8px;
-    }
-
-    .social-box a {
-      width: 50px;
-      height: 50px;
-      background: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      text-decoration: none;
-      color: var(--accent);
+      background: var(--cream);
       border: 1px solid var(--border);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
-      transition: var(--transition);
+      transition: background .2s, border-color .2s;
     }
 
-    .social-box a:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
-      color: white;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    .prayer-row.next-prayer {
+      background: var(--gold-pale);
+      border-color: var(--gold-border);
     }
 
-    /* تأثيرات متحركة خفيفة */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .prayer-row:hover {
+      background: var(--teal-light);
+      border-color: rgba(14,110,110,0.15);
     }
 
-    .fade-in {
-      animation: fadeIn 0.6s ease-out forwards;
-    }
-
-    @keyframes slideInRight {
-      from { opacity: 0; transform: translateX(30px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    .slide-in-right {
-      animation: slideInRight 0.5s ease-out forwards;
-    }
-
-    /* تحسينات إضافية */
-    .hero-stats {
+    .prayer-name {
       display: flex;
-      gap: 20px;
-      margin-top: 10px;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-mid);
     }
 
-    .stat {
+    .prayer-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: var(--teal-light);
+      color: var(--teal);
       display: flex;
-      flex-direction: column;
-      padding: 12px 20px;
-      border-radius: 10px;
-      background: var(--accent-light);
-      border: 1px solid rgba(14, 116, 144, 0.1);
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
     }
 
-    .stat-value {
+    .prayer-time-val {
       font-weight: 800;
-      font-size: 24px;
-      color: var(--accent);
+      color: var(--teal);
+      font-size: 15px;
+      font-variant-numeric: tabular-nums;
     }
 
-    .stat-label {
-      font-size: 13px;
+    .prayer-footer {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+      text-align: center;
+      font-size: 12px;
       color: var(--text-muted);
     }
 
-    .update-badge {
-      display: inline-flex;
+    /* ════════════════════════════
+       SOCIAL ICONS ROW
+    ════════════════════════════ */
+    .social-strip {
+      background: white;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .social-strip-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      border-radius: 50px;
-      background: linear-gradient(90deg, rgba(14, 116, 144, 0.08), rgba(8, 145, 178, 0.04));
-      color: var(--accent);
-      font-weight: 600;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .social-strip-label {
       font-size: 14px;
-      border: 1px solid rgba(14, 116, 144, 0.1);
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
     }
 
-    .update-badge i {
-      font-size: 12px;
+    .social-strip-icons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    /* تحسين شريط التمرير */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+    .s-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      color: var(--text-soft);
+      transition: all .3s var(--ease);
     }
 
-    ::-webkit-scrollbar-track {
-      background: #f1f5f9;
-      border-radius: 4px;
+    .s-icon:hover {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: white;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(14,110,110,0.25);
     }
 
-    ::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 4px;
+    /* ════════════════════════════
+       FOOTER
+    ════════════════════════════ */
+    footer {
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 48px 32px 32px;
+      position: relative;
+      z-index: 1;
     }
 
-    ::-webkit-scrollbar-thumb:hover {
-      background: #94a3b8;
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    .footer-brand .name {
+      font-family: 'Amiri', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .footer-brand .desc {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    /* ════════════════════════════
+       MOBILE SIDEBAR
+    ════════════════════════════ */
+    .mobile-sidebar-toggle {
+      display: none;
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--teal-2));
+      color: white;
+      border: none;
+      font-size: 19px;
+      cursor: pointer;
+      z-index: 9998;
+      box-shadow: 0 8px 24px rgba(14,110,110,0.35);
+      transition: all .3s var(--ease);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-sidebar-toggle:hover {
+      transform: scale(1.08);
+    }
+
+    .mobile-sidebar {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 340px;
+      max-width: 92%;
+      height: 100vh;
+      background: white;
+      z-index: 9999;
+      padding: 24px;
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform .35s var(--ease);
+      box-shadow: -12px 0 48px rgba(0,0,0,0.12);
+      border-left: 1px solid var(--border);
+    }
+
+    .mobile-sidebar.active { transform: translateX(0); }
+
+    .close-sidebar-btn {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      color: var(--text-soft);
+      cursor: pointer;
+    }
+
+    /* ════════════════════════════
+       DECORATIVE TOP BAND
+    ════════════════════════════ */
+    .top-band {
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal) 0%, var(--gold) 50%, var(--teal) 100%);
+      background-size: 200% 100%;
+      animation: shimmer 4s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* ════════════════════════════
+       RESPONSIVE
+    ════════════════════════════ */
+    @media (max-width: 1100px) {
+      .page-wrapper {
+        grid-template-columns: 1fr;
+        padding: 28px 24px 60px;
+      }
+
+      aside { display: none; }
+
+      .mobile-sidebar-toggle { display: flex; }
+      .mobile-sidebar { display: block; }
+    }
+
+    @media (max-width: 780px) {
+      nav ul, .nav-cta { display: none; }
+      .menu-btn { display: flex; }
+      .nav { padding: 0 20px; height: 66px; }
+      .hero { padding: 28px 24px; }
+      .hero h1 { font-size: 28px; }
+      .hero-top { flex-direction: column; }
+      .search-wrap { min-width: 100%; max-width: 100%; }
+      .grid { grid-template-columns: 1fr; }
+      .page-wrapper { padding: 20px 16px 80px; }
+    }
+
+    /* Stagger animations */
+    .card:nth-child(1) { transition-delay: .05s; }
+    .card:nth-child(2) { transition-delay: .12s; }
+    .card:nth-child(3) { transition-delay: .18s; }
+    .card:nth-child(4) { transition-delay: .25s; }
+
+    .widget:nth-child(1) { transition-delay: .1s; }
+    .widget:nth-child(2) { transition-delay: .2s; }
+    .widget:nth-child(3) { transition-delay: .3s; }
+
+    /* Loading spinner */
+    .spinner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px;
+      color: var(--text-muted);
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
+
+  <!-- Color band -->
+  <div class="top-band"></div>
+
+  <!-- ══ HEADER ══ -->
   <header>
     <div class="nav">
-      <div class="brand">
-        <a href="#" aria-label="الصفحة الرئيسية">
-          <div class="logo" aria-hidden="true">
-            <img src="https://www.appcreator24.com/srv/imgs/gen/3122147_ico.png?v=31" alt="شعار الدين الإسلامي">
-          </div>
-        </a>
-        <div>
-          <a href="#">
-            <div class="site-title">الدين الإسلامي</div>
-          </a>
+      <a class="brand" href="#">
+        <div class="logo-wrap">
+          <img src="https://www.appcreator24.com/srv/imgs/gen/3122147_ico.png?v=31" alt="شعار" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'color:white;font-weight:900;font-size:18px\'>ا</span>'">
+        </div>
+        <div class="brand-text">
+          <div class="site-title">الدين الإسلامي</div>
           <div class="site-sub">مرجعك الإيماني الشامل</div>
         </div>
-      </div>
+      </a>
 
       <nav aria-label="التنقل الرئيسي">
         <ul>
           <li><a href="#home" class="active">الرئيسية</a></li>
           <li><a href="#articles">المقالات</a></li>
-          <li><a href="#links-sidebar">الخدمات</a></li>
-          <li><a href="#media">وسائل التواصل</a></li>
+          <li><a href="#services">الخدمات</a></li>
+          <li><a href="#media">التواصل</a></li>
           <li><a href="#contact">اتصل بنا</a></li>
         </ul>
       </nav>
 
-      <div style="display:flex;align-items:center;gap:12px">
-       
-
-
-
-
-
-
-        <button class="cta" onclick="window.location.href='https://elden-eleslamy.github.io/download-app'">
-          <i class="fa-solid fa-download" style="margin-left:6px"></i>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button class="menu-btn" id="menuBtn" aria-label="القائمة">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <button class="nav-cta" onclick="window.location.href='https://elden-eleslamy.github.io/download-app'">
+          <i class="fa-solid fa-download"></i>
           تحميل التطبيق
         </button>
       </div>
     </div>
   </header>
 
-  <!-- زر فتح/إغلاق القائمة الجانبية (للشاشات الكبيرة) -->
-  <button class="sidebar-toggle" id="sidebarToggle" aria-label="إظهار/إخفاء القائمة الجانبية">
-    <i class="fa-solid fa-chevron-left"></i>
+  <!-- ══ MOBILE SIDEBAR TOGGLE ══ -->
+  <button class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="فتح القائمة">
+    <i class="fa-solid fa-bars-staggered"></i>
   </button>
 
-  <!-- زر فتح الشريط الجانبي للجوال -->
-  <button class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="فتح الشريط الجانبي">
-    <i class="fa-solid fa-bars"></i>
-  </button>
-
-  <!-- الشريط الجانبي للجوال -->
+  <!-- ══ MOBILE SIDEBAR ══ -->
   <div class="mobile-sidebar" id="mobileSidebar">
-    <button class="close-sidebar" id="closeSidebarBtn" aria-label="إغلاق الشريط الجانبي">
+    <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="إغلاق">
       <i class="fa-solid fa-times"></i>
     </button>
-    
-    <div style="margin-top:40px">
-      <!-- روابط مهمة -->
-      <div class="widget" role="navigation" aria-label="الخدمات الرئيسية">
-        <h3>الخدمات الرئيسية</h3>
+
+    <div style="margin-top:50px;display:flex;flex-direction:column;gap:20px">
+
+      <!-- Services -->
+      <div class="widget visible" id="services">
+        <div class="widget-title">الخدمات الرئيسية</div>
         <div class="links-list">
-          <a href="https://elden-eleslamy.github.io/.Download_app" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-download"></i>
+          <a href="https://elden-eleslamy.github.io/download-app" target="_blank">
+            <div class="link-icon"><i class="fa-solid fa-download"></i></div>
             تحميل التطبيق
           </a>
-          <a href="ElectronicLibrary.html" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-book-open"></i>
+          <a href="ElectronicLibrary.html" target="_blank">
+            <div class="link-icon"><i class="fa-solid fa-book-open"></i></div>
             المكتبة الإلكترونية
           </a>
-          <a href="404.html" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-video"></i>
+          <a href="404.html" target="_blank">
+            <div class="link-icon"><i class="fa-solid fa-video"></i></div>
             منصة الفيديوهات
           </a>
-          <a href="404.html" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-flag-checkered"></i>
+          <a href="404.html" target="_blank">
+            <div class="link-icon"><i class="fa-solid fa-flag-checkered"></i></div>
             منصة المسابقات
           </a>
-          <a href="https://elden-eleslamy.github.io/Quran-Radio/" target="_blank" rel="noopener noreferrer">
-            <i class="fa-sharp fa-solid fa-tower-broadcast"></i>
-               إذاعة القر’ن الكريم من القاهرة
+          <a href="https://elden-eleslamy.github.io/Quran-Radio/" target="_blank">
+            <div class="link-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+            إذاعة القرآن الكريم
           </a>
-          <a href="404.html" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-moon"></i>
-            منصة شهر رمضان
-          </a>
-        </div>
-      </div>
-
-      <!-- تواصل -->
-      <div id="contact" class="widget" role="region" aria-label="تواصل معنا">
-        <h3>تواصل معنا</h3>
-        <div class="socials">
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك">
-            <i class="fab fa-facebook-f"></i>
-            فيسبوك
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب">
-            <i class="fab fa-youtube"></i>
-            يوتيوب
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="تيليجرام">
-            <i class="fab fa-telegram-plane"></i>
-            تيليجرام
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="واتساب">
-            <i class="fab fa-whatsapp"></i>
-            واتساب
+          <a href="404.html" target="_blank">
+            <div class="link-icon"><i class="fa-solid fa-moon"></i></div>
+            منصة رمضان
           </a>
         </div>
       </div>
 
-      <!-- مواقيت الصلاة -->
-      <div class="widget" id="mobilePrayerBox">
-        <h3>مواقيت الصلاة</h3>
-        <div id="mobileUserLocation" style="text-align:center; margin-bottom:16px; color:var(--text-muted); font-size:14px; padding:10px; background:var(--accent-light); border-radius:8px;">
-          <i class="fa-solid fa-location-dot" style="margin-left:6px"></i>
+      <!-- Social -->
+      <div class="widget visible" id="contact">
+        <div class="widget-title">تواصل معنا</div>
+        <div class="socials-grid">
+          <a class="social-btn" href="#"><i class="fab fa-facebook-f"></i> فيسبوك</a>
+          <a class="social-btn" href="#"><i class="fab fa-youtube"></i> يوتيوب</a>
+          <a class="social-btn" href="#"><i class="fab fa-telegram-plane"></i> تيليجرام</a>
+          <a class="social-btn" href="#"><i class="fab fa-whatsapp"></i> واتساب</a>
+        </div>
+      </div>
+
+      <!-- Prayer Times (mobile) -->
+      <div class="widget visible">
+        <div class="widget-title">مواقيت الصلاة</div>
+        <div class="location-chip" id="mobileUserLocation">
+          <i class="fa-solid fa-location-dot"></i>
           جاري تحديد موقعك...
         </div>
-
-        <div class="prayer-list" id="mobilePrayerTimes">
-          <div style="text-align:center;color:var(--text-muted);padding:20px">
-            <i class="fa-solid fa-spinner fa-spin" style="margin-left:8px"></i>
-            جاري تحميل المواقيت...
-          </div>
+        <div class="prayer-grid" id="mobilePrayerTimes">
+          <div class="spinner"><i class="fa-solid fa-spinner fa-spin"></i> جاري التحميل...</div>
         </div>
-        
-        <div style="margin-top:16px; text-align:center; font-size:13px; color:var(--text-muted); padding-top:16px; border-top:1px solid var(--border)">
-          <i class="fa-solid fa-circle-info" style="margin-left:6px"></i>
-          يتم تحديث المواقيت تلقائيًا حسب موقعك
-        </div>
+        <div class="prayer-footer"><i class="fa-solid fa-circle-info" style="margin-left:5px"></i>يتم التحديث تلقائيًا حسب موقعك</div>
       </div>
+
     </div>
   </div>
 
-  <main class="container" id="home" role="main">
-    <!-- MAIN COLUMN -->
-    <section>
-      <div class="hero card fade-in" role="region" aria-label="مقدمة الموقع">
-        <div class="hero-row">
-          <div>
-            <h1>مرحبًا بك في موقع <span style="color:var(--accent)">«الدين الإسلامي»</span></h1>
-            <p>منصة شاملة للمحتوى الإيماني الهادف، تقدّم مقالات، فيديوهات، ومكتبة إلكترونية غنية بجودة عالية وتصميم أنيق.</p>
-            
-            <div class="hero-stats">
-              <div class="stat">
-                <div class="stat-value">1</div>
-                <div class="stat-label">عدد المقالات</div>
-              </div>
-             
-              <div class="stat">
-                <div class="stat-value">1.0.3</div>
-                <div class="stat-label">تحديثات الموقع</div>
-              </div>
-            </div>
-          </div>
+  <!-- ══ MAIN CONTENT ══ -->
+  <main class="page-wrapper" id="home">
 
-          <div style="min-width:280px;max-width:420px;">
-            <div class="search" role="search" aria-label="بحث في المنشورات">
-              <input id="searchInput" placeholder="ابحث عن مقال أو موضوع..." aria-label="بحث" />
-              <button id="searchBtn" aria-label="بحث">
-                <i class="fa-solid fa-search" style="margin-left:6px"></i>
-                ابحث
-              </button>
-            </div>
-            
-            <div style="display:flex;gap:12px;margin-top:16px">
-              <div class="update-badge">
-                <i class="fa-solid fa-circle" style="color:#10b981;font-size:8px"></i>
-                تحديث سريع
+    <!-- ── LEFT COLUMN ── -->
+    <section>
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="hero-top">
+            <div>
+              <div class="hero-eyebrow">
+                <div class="dot"></div>
+                مرحبًا بك في مرجعك الإيماني
               </div>
-              <div style="background:transparent;color:var(--text-muted);padding:8px 12px;border-radius:10px;border:1px solid var(--border);font-size:14px">
-                آخر تحديث: <strong id="lastUpdated">—</strong>
+              <h1>
+                موقع <span class="accent">«الدين الإسلامي»</span><br>
+                نور يهدي القلوب
+              </h1>
+              <p>منصة شاملة للمحتوى الإيماني الهادف — مقالات، فيديوهات، ومكتبة إلكترونية غنية بجودة عالية وتصميم أنيق.</p>
+
+              <div class="hero-stats">
+                <div class="stat-pill">
+                  <div class="stat-icon"><i class="fa-solid fa-newspaper"></i></div>
+                  <div>
+                    <div class="stat-val">1</div>
+                    <div class="stat-lbl">مقالات</div>
+                  </div>
+                </div>
+                <div class="stat-pill">
+                  <div class="stat-icon" style="background:var(--gold-pale);color:var(--gold)"><i class="fa-solid fa-code-branch"></i></div>
+                  <div>
+                    <div class="stat-val">1.0.3</div>
+                    <div class="stat-lbl">إصدار الموقع</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="search-wrap">
+              <div class="search-box">
+                <input id="searchInput" type="text" placeholder="ابحث عن مقال أو موضوع..." aria-label="بحث" />
+                <button id="searchBtn"><i class="fa-solid fa-search" style="margin-left:6px"></i>ابحث</button>
+              </div>
+              <div class="search-meta">
+                <div class="live-badge"><div class="live-dot"></div>تحديث مستمر</div>
+                <div class="date-chip">آخر تحديث: <strong id="lastUpdated">—</strong></div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- قائمة المقالات -->
-      <section id="articles" aria-label="منشورات ومقالات" style="margin-top:24px">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-          <h2 style="margin:0;color:var(--text-primary);font-size:24px">أحدث المقالات</h2>
-          <div style="color:var(--text-muted);font-size:14px">
-            عرض:
-            <select id="filterSelect" style="border:1px solid var(--border);padding:6px 12px;border-radius:8px;background:white;color:var(--text-primary);margin-right:8px">
-              <option value="all">الكل</option>
-              <option value="faith">الإيمان</option>
-              <option value="prayer">الصلاة</option>
-              <option value="quran">القرآن</option>
-            </select>
+      <!-- Articles -->
+      <section id="articles">
+        <div class="section-head">
+          <div class="section-title">
+            <div class="line"></div>
+            <h2>أحدث المقالات</h2>
           </div>
+          <select class="filter-select" id="filterSelect" aria-label="تصفية المقالات">
+            <option value="all">الكل</option>
+            <option value="الإيمان">الإيمان</option>
+            <option value="الصلاة">الصلاة</option>
+            <option value="القرآن">القرآن</option>
+          </select>
         </div>
 
-        <div id="articlesGrid" class="grid" role="list">
-          <!-- مقالة 1 -->
-          <article class="card slide-in-right" role="listitem" style="animation-delay:0.1s">
-            <div class="thumb" style="background:linear-gradient(135deg, #e0f2fe, #bae6fd)">
-              <div style="color:var(--accent);font-size:48px;display:flex;align-items:center;justify-content:center;width:100%;height:100%">
-              <div class="thumb" id="postImage" style="background-image:url('ChatGPT Image Dec 3, 2025, 04_48_42 PM.png');background-size:cover;background-position:center" aria-hidden="true"" role="img" aria-label="صورة الموضوع"></div>
+        <div class="grid" id="articlesGrid" role="list">
+
+          <!-- Article 1 -->
+          <article class="card" role="listitem" data-category="الإيمان">
+            <div class="card-thumb" style="background:linear-gradient(135deg,#d6efef,#b2dfdf)">
+              <i class="fa-solid fa-mosque thumb-placeholder"></i>
+              <div class="cat-badge">الإيمان</div>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <i class="fa-regular fa-calendar"></i>
+                <span>٣ ديسمبر ٢٠٢٥</span>
+              </div>
+              <h3 class="card-title">كيف يثبت المسلم على طريق الله؟</h3>
+              <p class="card-excerpt">خطوات عملية وثابتة تساعدك في الحفاظ على الصلة اليومية مع ربك، وتقوية الإيمان في زمن الفتن والشبهات.</p>
+              <div class="card-footer">
+                <a class="read-btn" href="art1.html">
+                  اقرأ المزيد
+                  <i class="fa-solid fa-arrow-left"></i>
+                </a>
               </div>
             </div>
-            <div class="meta">
-              <span><i class="fa-solid fa-calendar" style="margin-left:4px"></i> 3 ديسمبر 2025</span>
-              <span class="badge">الإيمان</span>
-            </div>
-            <h3 class="title">كيف يثبت المسلم على طريق الله؟</h3>
-            <p class="excerpt">خطوات عملية وثابتة تساعدك في الحفاظ على الصلة اليومية مع ربك، وتقوية الإيمان في زمن الفتن والشبهات.</p>
-            <a class="read-link" href="art1.html" aria-label="اقرأ المقال الأول">
-              اقرأ المزيد
-              <i class="fa-solid fa-arrow-left" style="font-size:12px"></i>
-            </a>
           </article>
 
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
+          <!-- Placeholder card (upcoming) -->
+          <article class="card" role="listitem" data-category="القرآن" style="border-style:dashed;opacity:0.5;pointer-events:none">
+            <div class="card-thumb" style="background:linear-gradient(135deg,#fef9ec,#fdf0c7)">
+              <i class="fa-solid fa-quran thumb-placeholder" style="color:var(--gold)"></i>
+              <div class="cat-badge" style="color:var(--gold)">قريبًا</div>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <i class="fa-regular fa-clock"></i>
+                <span>قريبًا</span>
+              </div>
+              <h3 class="card-title">مقال جديد قيد الإعداد</h3>
+              <p class="card-excerpt">نعمل على تجهيز محتوى جديد ومميز لكم. ترقبوا المزيد من المقالات الإيمانية القيّمة.</p>
+            </div>
+          </article>
 
         </div>
       </section>
     </section>
 
-    <!-- SIDEBAR (للشاشات الكبيرة فقط) -->
-    <aside id="mainSidebar" aria-label="الشريط الجانبي">
-      <!-- روابط مهمة -->
-      <div class="widget" role="navigation" aria-label="الخدمات الرئيسية">
-        <h3>الخدمات الرئيسية</h3>
+    <!-- ── SIDEBAR ── -->
+    <aside>
+
+      <!-- Services -->
+      <div class="widget">
+        <div class="widget-title">الخدمات الرئيسية</div>
         <div class="links-list">
-          <a href="https://elden-eleslamy.github.io/download-app" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-download"></i>
+          <a href="https://elden-eleslamy.github.io/download-app" target="_blank">
+            <div class="link-icon"><i class="fa-solid fa-download"></i></div>
             تحميل التطبيق
           </a>
-          <a href="ElectronicLibrary.html" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-book-open"></i>
+          <a href="ElectronicLibrary.html" target="_blank">
+            <div class="link-icon"><i class="fa-solid fa-book-open"></i></div>
             المكتبة الإلكترونية
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-video"></i>
+          <a href="#" target="_blank">
+            <div class="link-icon"><i class="fa-solid fa-video"></i></div>
             منصة الفيديوهات
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-flag-checkered"></i>
+          <a href="#" target="_blank">
+            <div class="link-icon"><i class="fa-solid fa-flag-checkered"></i></div>
             منصة المسابقات
           </a>
-          <a href="https://elden-eleslamy.github.io/Quran-Radio/" target="_blank" rel="noopener noreferrer">
-            <i class="fa-sharp fa-solid fa-tower-broadcast"></i>
-               إذاعة القر’ن الكريم من القاهرة
+          <a href="https://elden-eleslamy.github.io/Quran-Radio/" target="_blank">
+            <div class="link-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+            إذاعة القرآن الكريم
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-moon"></i>
-            منصة شهر رمضان
-          </a>
-         
-        </div>
-      </div>
-
-      <!-- تواصل -->
-      <div id="contact" class="widget" role="region" aria-label="تواصل معنا">
-        <h3>تواصل معنا</h3>
-        <div class="socials">
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك">
-            <i class="fab fa-facebook-f"></i>
-            فيسبوك
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب">
-            <i class="fab fa-youtube"></i>
-            يوتيوب
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="تيليجرام">
-            <i class="fab fa-telegram-plane"></i>
-            تيليجرام
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="واتساب">
-            <i class="fab fa-whatsapp"></i>
-            واتساب
+          <a href="#" target="_blank">
+            <div class="link-icon"><i class="fa-solid fa-moon"></i></div>
+            منصة رمضان
           </a>
         </div>
       </div>
 
-      <!-- مواقيت الصلاة -->
+      <!-- Social -->
+      <div class="widget">
+        <div class="widget-title">تواصل معنا</div>
+        <div class="socials-grid">
+          <a class="social-btn" href="#"><i class="fab fa-facebook-f"></i> فيسبوك</a>
+          <a class="social-btn" href="#"><i class="fab fa-youtube"></i> يوتيوب</a>
+          <a class="social-btn" href="#"><i class="fab fa-telegram-plane"></i> تيليجرام</a>
+          <a class="social-btn" href="#"><i class="fab fa-whatsapp"></i> واتساب</a>
+        </div>
+      </div>
+
+      <!-- Prayer Times -->
       <div class="widget" id="prayer-box">
-        <h3>مواقيت الصلاة</h3>
-        <div id="userLocation" style="text-align:center; margin-bottom:16px; color:var(--text-muted); font-size:14px; padding:10px; background:var(--accent-light); border-radius:8px;">
-          <i class="fa-solid fa-location-dot" style="margin-left:6px"></i>
+        <div class="widget-title">مواقيت الصلاة</div>
+        <div class="location-chip" id="userLocation">
+          <i class="fa-solid fa-location-dot"></i>
           جاري تحديد موقعك...
         </div>
-
-        <div class="prayer-list" id="prayerTimes">
-          <div style="text-align:center;color:var(--text-muted);padding:20px">
-            <i class="fa-solid fa-spinner fa-spin" style="margin-left:8px"></i>
-            جاري تحميل المواقيت...
-          </div>
+        <div class="prayer-grid" id="prayerTimes">
+          <div class="spinner"><i class="fa-solid fa-spinner fa-spin"></i> جاري التحميل...</div>
         </div>
-        
-        <div style="margin-top:16px; text-align:center; font-size:13px; color:var(--text-muted); padding-top:16px; border-top:1px solid var(--border)">
-          <i class="fa-solid fa-circle-info" style="margin-left:6px"></i>
-          يتم تحديث المواقيت تلقائيًا حسب موقعك
+        <div class="prayer-footer">
+          <i class="fa-solid fa-circle-info" style="margin-left:5px"></i>
+          يتم التحديث تلقائيًا حسب موقعك
         </div>
       </div>
+
     </aside>
   </main>
 
-  <!-- وسائل التواصل الاجتماعية -->
-  <div class="social-box" id="media" aria-label="وسائل التواصل الاجتماعي">
-    <a href="https://www.facebook.com/profile.php?id=100090053261427" title="فيسبوك" aria-label="فيسبوك">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="https://www.instagram.com/elden_eleslamy" title="إنستجرام" aria-label="إنستجرام">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://wa.me/" title="واتساب" aria-label="واتساب">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-    <a href="https://www.t.me/eldeneleslamy" title="تليجرام" aria-label="تليجرام">
-      <i class="fab fa-telegram-plane"></i>
-    </a>
-    <a href="https://www.youtube.com/@eldeneleslamy" title="يوتيوب" aria-label="يوتيوب">
-      <i class="fab fa-youtube"></i>
-    </a>
-    <a href="https://www.tiktok.com/@elden_eleslamy" title="تيك توك" aria-label="تيك توك">
-      <i class="fab fa-tiktok"></i>
-    </a>
-    <a href="https://www.x.com/elden_eleslamy" title="X / تويتر" aria-label="X">
-      <i class="fab fa-twitter"></i>
-    </a>
-    <a href="https://www.threads.com/@elden_eleslamy" title="ثريدس" aria-label="ثريدس">
-      <i class="fas fa-circle"></i>
-    </a>
+  <!-- ══ SOCIAL STRIP ══ -->
+  <div class="social-strip" id="media">
+    <div class="social-strip-inner">
+      <span class="social-strip-label">تابعنا على</span>
+      <div class="social-strip-icons">
+        <a class="s-icon" href="https://www.facebook.com/profile.php?id=100090053261427" title="فيسبوك" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+        <a class="s-icon" href="https://www.instagram.com/elden_eleslamy" title="إنستجرام" aria-label="إنستجرام"><i class="fab fa-instagram"></i></a>
+        <a class="s-icon" href="https://wa.me/" title="واتساب" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+        <a class="s-icon" href="https://www.t.me/eldeneleslamy" title="تيليجرام" aria-label="تيليجرام"><i class="fab fa-telegram-plane"></i></a>
+        <a class="s-icon" href="https://www.youtube.com/@eldeneleslamy" title="يوتيوب" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
+        <a class="s-icon" href="https://www.tiktok.com/@elden_eleslamy" title="تيك توك" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
+        <a class="s-icon" href="https://www.x.com/elden_eleslamy" title="X" aria-label="X"><i class="fab fa-twitter"></i></a>
+        <a class="s-icon" href="https://www.threads.com/@elden_eleslamy" title="ثريدس" aria-label="ثريدس"><i class="fas fa-circle" style="font-size:13px"></i></a>
+      </div>
+    </div>
   </div>
 
+  <!-- ══ FOOTER ══ -->
   <footer>
-    <div style="max-width:1200px;margin:0 auto;padding:20px;color:var(--text-muted)">
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
-        <div>
-          <div style="font-weight:700;color:var(--text-primary);margin-bottom:8px">الدين الإسلامي</div>
-          <div style="font-size:14px">مرجعك الإيماني الشامل للتعلم والاستفادة</div>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="name">الدين الإسلامي</div>
+          <div class="desc">مرجعك الإيماني الشامل للتعلم والاستفادة</div>
         </div>
-        
-        <div style="display:flex;gap:24px;font-size:14px">
-         
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="live-badge"><div class="live-dot"></div>الموقع نشط</div>
         </div>
       </div>
-      
-      <div style="text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid var(--border);font-size:14px">
+      <div class="footer-bottom">
         © <span id="year"></span> جميع الحقوق محفوظة لموقع «الدين الإسلامي»
       </div>
     </div>
   </footer>
 
-  <!-- Adhan.js (CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/adhan@4.1.1/dist/Adhan.min.js"></script>
-
   <script>
-    // ========== TOGGLE SIDEBAR FUNCTIONALITY ==========
-    const sidebarToggle = document.getElementById('sidebarToggle');
-    const mainSidebar = document.getElementById('mainSidebar');
-    const container = document.querySelector('.container');
-    
-    // حالة الشريط الجانبي (مفتوح افتراضيًا)
-    let sidebarOpen = true;
-    
-    // تبديل حالة الشريط الجانبي
-    function toggleSidebar() {
-      sidebarOpen = !sidebarOpen;
-      
-      if (sidebarOpen) {
-        // فتح الشريط الجانبي
-        mainSidebar.style.display = 'flex';
-        container.style.gridTemplateColumns = '1fr 340px';
-        sidebarToggle.classList.remove('closed');
-        sidebarToggle.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
-        sidebarToggle.setAttribute('aria-label', 'إخفاء القائمة الجانبية');
-      } else {
-        // إغلاق الشريط الجانبي
-        mainSidebar.style.display = 'none';
-        container.style.gridTemplateColumns = '1fr';
-        sidebarToggle.classList.add('closed');
-        sidebarToggle.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
-        sidebarToggle.setAttribute('aria-label', 'إظهار القائمة الجانبية');
-      }
-    }
-    
-    // إضافة مستمع الأحداث للزر
-    sidebarToggle.addEventListener('click', toggleSidebar);
-    
-    // ========== MOBILE SIDEBAR FUNCTIONALITY ==========
-    const mobileSidebarToggle = document.getElementById('mobileSidebarToggle');
-    const mobileSidebar = document.getElementById('mobileSidebar');
-    const closeSidebarBtn = document.getElementById('closeSidebarBtn');
-    
-    // فتح الشريط الجانبي للجوال
-    function openMobileSidebar() {
-      mobileSidebar.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    
-    // إغلاق الشريط الجانبي للجوال
-    function closeMobileSidebar() {
-      mobileSidebar.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    
-    // إضافة مستمعي الأحداث
-    mobileSidebarToggle.addEventListener('click', openMobileSidebar);
-    closeSidebarBtn.addEventListener('click', closeMobileSidebar);
-    
-    // إغلاق الشريط الجانبي بالنقر خارجيه
-    document.addEventListener('click', function(event) {
-      const isClickInsideSidebar = mobileSidebar.contains(event.target);
-      const isClickOnToggleBtn = mobileSidebarToggle.contains(event.target);
-      
-      if (!isClickInsideSidebar && !isClickOnToggleBtn && mobileSidebar.classList.contains('active')) {
-        closeMobileSidebar();
-      }
-    });
-    
-    // إغلاق الشريط الجانبي بمفتاح Escape
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape' && mobileSidebar.classList.contains('active')) {
-        closeMobileSidebar();
-      }
-    });
-
-    // ========== SMALL SCRIPTS ==========
-    const searchInput = document.getElementById("searchInput");
-    const searchBtn = document.getElementById("searchBtn");
-    searchBtn.addEventListener("click", () => {
-      const term = searchInput.value.trim();
-      if(!term) return alert("من فضلك اكتب كلمة للبحث");
-      // هنا ممكن تربط للبحث الحقيقي لاحقًا
-      alert("تم البحث عن: " + term);
-    });
-    searchInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') searchBtn.click(); });
-
-    // ========== SET YEAR & LAST UPDATED ==========
+    // ═══ INIT ═══
     document.getElementById('year').textContent = new Date().getFullYear();
-    const lastUpdated = new Date();
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('lastUpdated').textContent = lastUpdated.toLocaleDateString('ar-EG', options);
+    const opts = { year:'numeric', month:'long', day:'numeric' };
+    document.getElementById('lastUpdated').textContent = new Date().toLocaleDateString('ar-EG', opts);
 
-    // ========== FILTER ARTICLES ==========
-    const filterSelect = document.getElementById('filterSelect');
-    const articles = document.querySelectorAll('.card[role="listitem"]');
-    
-    filterSelect.addEventListener('change', function() {
-      const value = this.value;
-      
-      articles.forEach(article => {
-        const badge = article.querySelector('.badge');
-        if (value === 'all' || (badge && badge.textContent.includes(value))) {
-          article.style.display = 'flex';
-          article.classList.add('fade-in');
-        } else {
-          article.style.display = 'none';
+    // ═══ SCROLL ANIMATIONS ═══
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
         }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.card, .widget').forEach(el => io.observe(el));
+
+    // ═══ SEARCH ═══
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    searchBtn.addEventListener('click', () => {
+      const term = searchInput.value.trim();
+      if (!term) { searchInput.focus(); return; }
+      alert('تم البحث عن: ' + term);
+    });
+    searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') searchBtn.click(); });
+
+    // ═══ FILTER ═══
+    document.getElementById('filterSelect').addEventListener('change', function() {
+      const v = this.value;
+      document.querySelectorAll('.card[role="listitem"]').forEach(card => {
+        const cat = card.dataset.category || '';
+        const show = v === 'all' || cat.includes(v);
+        card.style.display = show ? 'flex' : 'none';
       });
     });
 
-    // ========== PRAYER TIMES ==========
-    function loadPrayerTimes(lat, lon) {
-      // جلب اسم المدينة والدولة
-      fetch(`https://api.aladhan.com/v1/reverseGeocode?latitude=${lat}&longitude=${lon}`)
-        .then(res => res.json())
-        .then(loc => {
-          const city = loc.data.city || "غير معروف";
-          const country = loc.data.country || "";
-          const locationText = `موقعك: <strong>${city}</strong> — <strong>${country}</strong>`;
-          
-          // تحديث الموقع في الشريط الجانبي الرئيسي
-          if (document.getElementById("userLocation")) {
-            document.getElementById("userLocation").innerHTML =
-              `<i class="fa-solid fa-location-dot" style="margin-left:6px"></i>
-               ${locationText}`;
-          }
-          
-          // تحديث الموقع في الشريط الجانبي للجوال
-          if (document.getElementById("mobileUserLocation")) {
-            document.getElementById("mobileUserLocation").innerHTML =
-              `<i class="fa-solid fa-location-dot" style="margin-left:6px"></i>
-               ${locationText}`;
-          }
-        });
+    // ═══ MOBILE SIDEBAR ═══
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const mobileToggle = document.getElementById('mobileSidebarToggle');
+    const closeBtn = document.getElementById('closeSidebarBtn');
 
-      // جلب مواقيت الصلاة
-      fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=5`)
-        .then(res => res.json())
-        .then(data => {
-          const t = data.data.timings;
-          const prayerTimesHTML = `
-            <div class="prayer-item"><span><i class="fa-solid fa-sun" style="margin-left:8px"></i> الفجر</span><span class="prayer-time">${t.Fajr}</span></div>
-            <div class="prayer-item"><span><i class="fa-solid fa-sun" style="margin-left:8px"></i> الظهر</span><span class="prayer-time">${t.Dhuhr}</span></div>
-            <div class="prayer-item"><span><i class="fa-solid fa-sun" style="margin-left:8px"></i> العصر</span><span class="prayer-time">${t.Asr}</span></div>
-            <div class="prayer-item"><span><i class="fa-solid fa-moon" style="margin-left:8px"></i> المغرب</span><span class="prayer-time">${t.Maghrib}</span></div>
-            <div class="prayer-item"><span><i class="fa-solid fa-moon" style="margin-left:8px"></i> العشاء</span><span class="prayer-time">${t.Isha}</span></div>
-          `;
-
-          // تحديث مواقيت الصلاة في الشريط الجانبي الرئيسي
-          if (document.getElementById("prayerTimes")) {
-            document.getElementById("prayerTimes").innerHTML = prayerTimesHTML;
-          }
-          
-          // تحديث مواقيت الصلاة في الشريط الجانبي للجوال
-          if (document.getElementById("mobilePrayerTimes")) {
-            document.getElementById("mobilePrayerTimes").innerHTML = prayerTimesHTML;
-          }
-        })
-        .catch(() => {
-          const errorHTML = `<div style="text-align:center;color:#ef4444;padding:20px">
-               <i class="fa-solid fa-triangle-exclamation" style="margin-left:8px"></i>
-               تعذّر تحميل المواقيت
-             </div>`;
-             
-          if (document.getElementById("prayerTimes")) {
-            document.getElementById("prayerTimes").innerHTML = errorHTML;
-          }
-          
-          if (document.getElementById("mobilePrayerTimes")) {
-            document.getElementById("mobilePrayerTimes").innerHTML = errorHTML;
-          }
-        });
+    function openSidebar() {
+      mobileSidebar.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+      mobileSidebar.classList.remove('active');
+      document.body.style.overflow = '';
     }
 
-    // تحديد الموقع تلقائيًا
+    mobileToggle.addEventListener('click', openSidebar);
+    closeBtn.addEventListener('click', closeSidebar);
+    document.addEventListener('click', e => {
+      if (mobileSidebar.classList.contains('active') &&
+          !mobileSidebar.contains(e.target) &&
+          !mobileToggle.contains(e.target)) {
+        closeSidebar();
+      }
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
+
+    // ═══ PRAYER TIMES ═══
+    const PRAYER_ICONS = {
+      Fajr: 'fa-star-and-crescent',
+      Dhuhr: 'fa-sun',
+      Asr: 'fa-cloud-sun',
+      Maghrib: 'fa-sunset',
+      Isha: 'fa-moon'
+    };
+    const PRAYER_NAMES = {
+      Fajr: 'الفجر',
+      Dhuhr: 'الظهر',
+      Asr: 'العصر',
+      Maghrib: 'المغرب',
+      Isha: 'العشاء'
+    };
+
+    function buildPrayerHTML(timings) {
+      return ['Fajr','Dhuhr','Asr','Maghrib','Isha'].map(key => `
+        <div class="prayer-row">
+          <div class="prayer-name">
+            <div class="prayer-icon"><i class="fa-solid ${PRAYER_ICONS[key]}"></i></div>
+            ${PRAYER_NAMES[key]}
+          </div>
+          <div class="prayer-time-val">${timings[key]}</div>
+        </div>
+      `).join('');
+    }
+
+    function setLocation(id, text) {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = `<i class="fa-solid fa-location-dot"></i> ${text}`;
+    }
+
+    function loadPrayerTimes(lat, lon) {
+      fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=5`)
+        .then(r => r.json())
+        .then(data => {
+          const html = buildPrayerHTML(data.data.timings);
+          ['prayerTimes','mobilePrayerTimes'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.innerHTML = html;
+          });
+        })
+        .catch(() => {
+          const err = '<div class="spinner" style="color:#ef4444"><i class="fa-solid fa-triangle-exclamation"></i> تعذّر التحميل</div>';
+          ['prayerTimes','mobilePrayerTimes'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.innerHTML = err;
+          });
+        });
+
+      fetch(`https://api.aladhan.com/v1/reverseGeocode?latitude=${lat}&longitude=${lon}`)
+        .then(r => r.json())
+        .then(loc => {
+          const city = loc.data?.city || '';
+          const country = loc.data?.country || '';
+          const txt = `${city}${city && country ? '، ' : ''}${country}`;
+          setLocation('userLocation', txt || 'موقعك الحالي');
+          setLocation('mobileUserLocation', txt || 'موقعك الحالي');
+        })
+        .catch(() => {});
+    }
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         pos => loadPrayerTimes(pos.coords.latitude, pos.coords.longitude),
         () => {
-          // لو الاذن مرفوض
-          const lat = 30.0444, lon = 31.2357; // القاهرة
-          const locationText = `استخدمنا موقع احتياطي: <strong>القاهرة، مصر</strong>`;
-          
-          if (document.getElementById("userLocation")) {
-            document.getElementById("userLocation").innerHTML = 
-              `<i class="fa-solid fa-location-dot" style="margin-left:6px"></i>
-               ${locationText}`;
-          }
-          
-          if (document.getElementById("mobileUserLocation")) {
-            document.getElementById("mobileUserLocation").innerHTML = 
-              `<i class="fa-solid fa-location-dot" style="margin-left:6px"></i>
-               ${locationText}`;
-          }
-          
-          loadPrayerTimes(lat, lon);
+          setLocation('userLocation', 'القاهرة، مصر (افتراضي)');
+          setLocation('mobileUserLocation', 'القاهرة، مصر (افتراضي)');
+          loadPrayerTimes(30.0444, 31.2357);
         }
       );
     } else {
-      const locationText = `جهازك لا يدعم تحديد الموقع`;
-      
-      if (document.getElementById("userLocation")) {
-        document.getElementById("userLocation").innerHTML = 
-          `<i class="fa-solid fa-location-dot" style="margin-left:6px"></i>
-           ${locationText}`;
-      }
-      
-      if (document.getElementById("mobileUserLocation")) {
-        document.getElementById("mobileUserLocation").innerHTML = 
-          `<i class="fa-solid fa-location-dot" style="margin-left:6px"></i>
-           ${locationText}`;
-      }
-      
+      setLocation('userLocation', 'القاهرة، مصر (افتراضي)');
+      setLocation('mobileUserLocation', 'القاهرة، مصر (افتراضي)');
       loadPrayerTimes(30.0444, 31.2357);
     }
-
-    // ========== ADD ANIMATIONS ON SCROLL ==========
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    // مراقبة العناصر لإضافة الأنيميشن
-    document.querySelectorAll('.card').forEach(card => {
-      observer.observe(card);
-    });
   </script>
 </body>
 </html>
-
-
-
-
-
-
